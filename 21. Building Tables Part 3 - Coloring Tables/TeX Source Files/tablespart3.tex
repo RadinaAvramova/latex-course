@@ -1,0 +1,116 @@
+\documentclass{article}
+
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+
+\title{\Huge Building Tables Part III}
+\date{}
+
+\setlength{\extrarowheight}{3pt}
+\newcolumntype{G}{>{\columncolor{green}[4pt]}c}
+\newcolumntype{A}{>{\columncolor[gray]{0.7}}c}
+
+\newcolumntype{S}{
+	>{\color{white}\columncolor[gray]{0.2}[3pt]}c
+}
+\begin{document}
+	\maketitle
+	\section{The colortbl Package}
+	
+	\subsection{Coloring Commands}
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|G|*{2}{c|}A|}
+			\hline
+			ID & Item Name & Quantity & Price \\
+			\hline
+			\rowcolor{red}
+			1004 & RAM & 25 & \cellcolor{cyan} 250 \\
+			\hline
+			100005 & Processor & 10 & 1000 \\
+			\hline
+			1006 & Mouse & 30 & 50 \\
+			\hline
+			1007 & Keyboard & 25 & 100 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\bigskip
+	
+	\subsection{Fine Tuning and Rule Coloring}
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{SS}
+		    101 & 102 
+		\end{tabular} \\
+		\vspace{3pt}
+		\begin{tabular}{SS}
+			103 & 104
+		\end{tabular} 
+	\end{table}
+	\bigskip
+	\begin{table}[h]
+		\setlength\arrayrulewidth{3pt}								\arrayrulecolor{white}
+		\centering
+		\begin{tabular}{SS}
+		    101 & 102 \\
+		    \hline
+		    103 & 104 
+		\end{tabular} 
+	\end{table}
+	\arrayrulecolor{black} % A Must Reset	
+	
+	\pagebreak
+	
+	\subsection{Using multirow with colortbl}
+	\begin{enumerate}
+		\item Insert the coloring command in each 
+			row of the multirow cell.
+		\item Place the multirow command in the last 
+			row of the cell making\\ the number of rows
+			negative.
+	\end{enumerate}
+	\begin{table}[h]
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\cellcolor{blue}
+				 & One & Two \\
+			\cline{2-3}
+			\cellcolor{blue}
+			\multirow{-2}{*}{\color{white}{\bf Cell}} 
+				& Three & Four \\
+			\hline
+			Five & Six & Seven \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\section{The xcolor Package Support for Tables}
+	\begin{table}[h]
+		\centering
+		\rowcolors{2}{green!50}{blue!50}
+		\begin{tabular}{|*{4}{>{\color{white}}c|}}
+			\hline
+			\rowcolor{black}
+			ID & Item Name & Quantity & Price \\
+			\hline
+			1004 & RAM & 25 & 250 \\
+			\hline
+			100005 & Processor & 10 & 1000 \\
+			\hline
+			1006 & Mouse & 30 & 50 \\
+			\hline
+			1007 & Keyboard & 25 & 100 \\
+			\hline \hiderowcolors \rowcolor{red!50}
+			1008 & Cache Memory & 40 & 150 \\
+			\hline \rowcolor{cyan!50}
+			1009 & Storage SSD & 20 & 180 \\
+			\hline \showrowcolors 
+			1010 & Cache Memory & 40 & 150 \\
+			\hline 
+			1011 & Storage SSD & 20 & 180 \\
+			\hline
+		\end{tabular}
+	\end{table}
+\end{document}

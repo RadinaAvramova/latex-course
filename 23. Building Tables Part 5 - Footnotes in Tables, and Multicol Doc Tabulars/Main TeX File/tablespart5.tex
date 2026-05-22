@@ -1,0 +1,163 @@
+\documentclass{article}
+
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[roman,breakwithin,reset]{parnotes}
+\usepackage{supertabular}
+\usepackage{perpage}
+\usepackage{lipsum}
+
+\title{\Huge Building Tables Part V}
+\date{}
+
+\MakePerPage{footnote} % May take two runs to work
+\setlength\extrarowheight{3pt}
+
+\begin{document}
+	\maketitle
+	
+	\section{Footnotes in the tabular Environment}
+	
+	\subsection{First Case: using footnote mark and 			text commands}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline A & B \footnotemark \\
+			\hline C & D \\ \hline
+		\end{tabular}
+		\footnotetext{For the standalone tabular
+		env. only one footnote is allowed.}	
+	\end{center}	
+	
+	\bigskip
+	
+	\subsection{Second Case: using footnote cmd with 			minipage}
+	\begin{minipage}{\linewidth}
+		\hspace{5cm}
+		\begin{tabular}{|c|c|}
+			\hline A \footnote{Multiple footnote
+				commands are allowed for a tabular
+				inside a minipage.} & B \\
+			\hline C & D  \footnote{Another footnote.} 				\\ \hline
+		\end{tabular}
+	\end{minipage}
+	
+	\bigskip	
+	
+	\subsection{Third Case: when wrapped in a float}
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline A & B \footnotemark[2] \\
+			\hline C & D \footnotemark[3] \\ \hline
+		\end{tabular}	
+	\end{table}
+	\footnotetext[2]{Footnote text command must be 				outside the float environment.}
+	\footnotetext[3]{Second footnote in the same table.}
+	
+	\newpage % \pagebreak doesn't add space
+	
+	\section{Footnotes in the tabularx Environment}
+	
+	\subsection{footnote cmd in Standalone tabularx}
+	\hspace{2.9cm}
+	\begin{tabularx}{0.5\linewidth}{|X|X|X|}
+		\hline
+		{\bf Item} & {\bf Price} & {\bf Quantity}\\
+		\hline
+		No.1 & 150 & 4 
+			\footnote{tabularx Standalone Footnote} \\
+		No.2 & 130 & 5 \\
+		No.3 & 140 & 6 \\
+		\hline
+	\end{tabularx} 
+	
+	\subsection{tabularx Inside table Float}
+	\begin{table}[h]
+		\centering
+		\begin{tabularx}{0.5\linewidth}{|X|X|X|}
+		\hline
+		{\bf Item} & {\bf Price} & {\bf Quantity}\\
+		\hline
+		No.1 & 150 & 4 \footnotemark \\
+		No.2 & 130 & 5 \\
+		No.3 & 140 & 6 \\
+		\hline
+		\end{tabularx}
+	\end{table}
+	\footnotetext{This is a footnote for 
+			a tabularx inside table float.}
+			
+	\subsection{tabularx and parnotes Package}
+	\begin{table}[h] 
+		\centering 
+		\begin{tabularx}{0.5\linewidth}{|X|X|X|}
+		\hline
+		{\bf Item} & {\bf Price} & {\bf Quantity}\\
+		\hline
+		No.1 & 150 & 4 
+					\parnote{This is a parnote!} \\
+		No.2 & 130 & 5 
+					\parnote{Yet another parnote!}\\
+		No.3 & 140 & 6 \\
+		\hline
+		\end{tabularx}
+		\parnotes 
+	\end{table}
+	
+	\newpage
+	
+	\section{Footnotes for Multipage Tables}
+	
+	\subsection{Inside longtable} 
+	You can directly use the \emph{footnote} command
+		after any entry in this environment.
+		
+	\subsection{For the supertabulars}
+	\tablecaption{SuperTabular Above Caption.}
+	\tablehead{
+		\hline
+		\textbf{Counter} & \textbf{Data} &
+		\textbf{Data} & \textbf{Data} & \textbf{Data}\\ 
+		\hline
+		}
+	\tabletail{\hline}
+	\begin{center}
+	\begin{mpsupertabular}{|*{5}{c|}}
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 
+			\footnote{Supertabular Footnote} \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 
+			\parnote{A parnote inside supertabular} \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+	\end{mpsupertabular}
+	\parnotes
+	\end{center}
+\end{document}

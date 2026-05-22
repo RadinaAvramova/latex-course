@@ -1,0 +1,69 @@
+\documentclass{article}
+
+\usepackage{imakeidx, amsthm}
+
+\title{\Huge\bf Indexing Techniques}
+\date{}
+
+\makeindex[columns=1, title=\textit{Indexes}, intoc, options={-r}]
+% columnseprule, columnsep=100pt with 2cols
+
+\indexprologue[\vspace{25pt}]{This is a list of Indexes for some words in the article, and this text is inserted as a prologue. Note that any space you put in the index cmd is typeset literally in the output file.}
+
+\begin{document}
+	\maketitle
+	\tableofcontents	
+	
+	\section{Gravity or Gravitation}
+	\paragraph{} \index{Gravity Topic |(textit}
+	Gravity or gravitation, is a natural phenomenon by which all things with mass or energy-including planets, stars, galaxies, and even light are brought toward (or gravitate toward) one another. On Earth , gravity gives weight to physical objects, and the Moon's gravity causes the ocean tides. The gravitational attraction of the original gaseous matter present in the Universe caused it to begin coalescing and forming stars and caused the stars to group together into galaxies, so gravity is responsible for many of the large-scale structures in the Universe. Gravity has an infinite range, although its effects become weaker as objects get further away.
+	\index{Gravity}
+	\index{galaxies}
+	\index{Universe !Earth!objects}
+	\index{z@$ax+b=c$} % key@visual
+	
+	%% Indexes of this page
+	% \index{~}
+	% \index{#}
+	% \index{~!#} and so on.
+	
+	\pagebreak	
+	
+	\section{Gravity Revisited}
+	\paragraph{} \index{Gravity Topic |)textit}
+	Gravity \index{Gravity} is most accurately described by the general theory of relativity \index{relativity} \index{relativity|see{Gravity}} (proposed by Albert Einstein in 1915), which describes gravity not as a force, but as a consequence of masses moving along geodesic lines in a curved space/time caused by the uneven distribution of mass. The most extreme example of this curvature of space/time is a black hole, from which nothing -not even light- can escape once past the black hole's event horizon. However, for most applications, gravity is well approximated by Newton's law of universal \index{universal|seealso{\textbf{Universe}}} gravitation, which describes gravity as a force causing any two bodies to be attracted toward each other, with magnitude proportional to the product of their masses and inversely proportional to the square of the distance between them. 
+	\index{A@MIT}
+	\index{L@\LaTeX}
+	\index{V@$\vec{F}$|textbf} % key@visual|\textbf{No}
+	
+	% Indexing Special Chars: precede them with "
+	\index{Q@""Quotation""}
+	\index{E@Exclamation "!}
+	\index{P@Pipe Operator \texttt{"|}}
+	\index{z@Key"@Visual}
+	
+	\pagebreak
+	
+	\section{Implicit Page Range Behavior}
+	\index{Proof}
+	\begin{proof}
+		Put the content of the proof here !!
+	\end{proof}
+	
+	\pagebreak
+	
+	\index{Proof}
+	\begin{proof}
+		Put the content of the proof here !!
+	\end{proof}
+	
+	\pagebreak
+	
+	\index{Proof}
+	\begin{proof}
+		Put the content of the proof here !!
+	\end{proof}
+	
+	\printindex
+	
+\end{document}

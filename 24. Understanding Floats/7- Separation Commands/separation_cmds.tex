@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage{kantlipsum}
+
+\begin{document}
+
+	{\centering\Huge\bf Separation Commands}
+	\setlength{\textfloatsep}{2.5cm}
+	\begin{table}[t] % or bottom
+		\begin{tabular}{|c|c|}
+			\hline A & B \\ \hline C & D \\ \hline
+		\end{tabular}
+	\end{table}
+	\setlength{\floatsep}{2cm}
+	\begin{table}[t]
+		\begin{tabular}{|c|c|}
+			\hline A & B \\ \hline C & D \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\vspace{1cm}
+	
+	\setlength{\intextsep}{1.5cm}
+	\kant[1]
+	\begin{table}[h]
+		\begin{tabular}{|c|c|}
+			\hline A & B \\ \hline C & D \\ \hline
+		\end{tabular}
+	\end{table}
+	\kant[1]
+	
+\end{document}

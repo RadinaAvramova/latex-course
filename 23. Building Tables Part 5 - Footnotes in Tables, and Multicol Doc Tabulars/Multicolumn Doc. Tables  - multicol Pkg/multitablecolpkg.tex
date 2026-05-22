@@ -1,0 +1,52 @@
+\documentclass{article}
+
+\usepackage{kantlipsum}
+\usepackage{multicol} 
+\usepackage{caption}
+\usepackage{graphicx}
+
+\title{\Huge Tabulars and multicol Package}
+\date{}
+\DeclareCaptionType{Table}
+% Margins Setup
+\setlength{\oddsidemargin}{0pt} % Same as right
+\setlength{\textwidth}{465pt}
+\setlength{\columnsep}{20pt}
+
+\begin{document}
+	\maketitle
+	
+	\begin{multicols}{2}
+		\kant[1-5]
+	\end{multicols}
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|*{8}{c|}}
+			\hline
+			AAA&AAA&AAA&AAA&AAA&AAA&AAA&AAA \\
+			\hline\hline
+			BBB&BBB&BBB&BBB&BBB&BBB&BBB&BBB \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{multicols}{2}
+		\kant[1-2]
+		\vspace{10pt}
+		\begin{center}
+		\begin{tabular}{|*{5}{c|}}
+			\hline
+			AAA&AAA&AAA&AAA&AAA \\
+			\hline\hline
+			BBB&BBB&BBB&BBB&BBB \\
+			\hline
+		\end{tabular}
+		\end{center}
+		\captionof{Table}{This is a Caption.}
+		\vspace{10pt}
+		
+		\kant[1-2]
+	\end{multicols}
+	
+\end{document}

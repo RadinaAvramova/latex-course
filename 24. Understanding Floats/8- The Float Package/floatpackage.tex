@@ -1,0 +1,49 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{\Huge The float Package}
+\date{}
+
+\floatstyle{boxed} 
+\newfloat{BoxImage}{htpb}{csv}[section] 
+\floatname{BoxImage}{Boxed Image}
+
+\floatstyle{ruled}
+\newfloat{FloatEqn}{htpb}{txt}[section]
+\floatname{FloatEqn}{Float Equation}
+
+\restylefloat{table}
+
+\begin{document}
+	\maketitle
+	
+	\listof{BoxImage}{List of Boxed Images} 
+	\listof{FloatEqn}{List of Floating Equations} 	
+	
+	\section{The Boxed Image Float}
+	\begin{BoxImage}
+		\centering \vspace{10pt}
+		\includegraphics[scale=0.25]{horus-eye.png}
+		\vspace{10pt}
+		\caption{This is an image with the new float.}
+	\end{BoxImage}
+	
+	\begin{FloatEqn}
+		\[ E = mc^2 \]
+		\caption{Mass-Energy Equivalence.}
+	\end{FloatEqn}
+	
+	\begin{table}[H]
+		\centering
+		\caption{A Ruled Style Table.}
+		\begin{tabular}{c|c|c}
+			AAA & BBB & CCC \\
+			\hline
+			AAA & BBB & CCC \\
+			\hline
+			AAA & BBB & CCC 
+		\end{tabular}
+	\end{table}
+\end{document}

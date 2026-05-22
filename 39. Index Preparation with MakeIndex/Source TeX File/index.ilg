@@ -1,0 +1,9 @@
+This is makeindex, version 2.16 [MiKTeX 23.10].
+Scanning input file index.idx....done (20 entries accepted, 0 rejected).
+Sorting entries....done (84 comparisons).
+Generating output file index.ind....
+## Warning (input = index.idx, line = 9; output = index.ind, line = 30):
+   -- Conflicting entries: multiple encaps for the same page under same key.
+done (48 lines written, 1 warning).
+Output written in index.ind.
+Transcript written in index.ilg.

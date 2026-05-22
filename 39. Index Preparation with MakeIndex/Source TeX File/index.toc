@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Gravity or Gravitation}{1}{}%
+\contentsline {paragraph}{}{1}{}%
+\contentsline {section}{\numberline {2}Gravity Revisited}{2}{}%
+\contentsline {paragraph}{}{2}{}%
+\contentsline {section}{\numberline {3}Implicit Page Range Behavior}{3}{}%
+\contentsline {section}{\textit {Indexes}}{6}{}%

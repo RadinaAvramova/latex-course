@@ -1,0 +1,244 @@
+\documentclass{article}
+
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{kantlipsum}
+\usepackage{supertabular}
+
+\title{\Huge Building Tables Part IV}
+\date{}
+
+\newcolumntype{L}{>{\centering\arraybackslash}m{3.5cm}}
+
+\begin{document}
+	\maketitle
+	
+	\section{Nesting Tables}
+	\begin{table}[h] 
+		\centering
+		\setlength\extrarowheight{2pt}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\multirow{2}{*}{
+				\begin{tabular}{|c|}
+					Cell 1 \\ \hline Cell 2 
+				\end{tabular}
+			}
+				& One & Two \\
+			\cline{2-3}
+				& Three & Four \\
+			\cline{1-2}
+			Five & Six & 
+				\begin{tabularx}{0.1\linewidth}{|X|}
+					\hline
+					Seven \\ Eight \\ Nine
+				\end{tabularx} \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\section{Combining Tables}
+	
+	\subsection{Using Multiple tabular Environments}
+	\begin{table}[h] 
+		\centering
+		\caption{Multiple Tables Described by One 
+		Caption.} \vspace{1mm}
+		\setlength\extrarowheight{2pt}
+		\begin{tabular}{|c|c|c|} %% FIRST TABLE
+			\hline
+			\multirow{2}{*}{Cell}
+				& One & Two \\
+			\cline{2-3}
+				& Three & Four \\
+			\hline
+			Five & Six & Seven \\
+			\hline
+		\end{tabular} \hspace{1cm}
+		\begin{tabular}{|c|c|c|} %% SECOND TABLE
+			\hline
+			\multirow{2}{*}{Cell}
+				& One & Two \\
+			\cline{2-3}
+				& Three & Four \\
+			\hline
+			Five & Six & Seven \\
+			\hline
+		\end{tabular} 
+	\end{table}
+	
+	\subsection{Using the minipage Environment}
+	\begin{table}[h]
+		\centering
+		\begin{minipage}[c]{0.31\linewidth}
+			\caption{First Table.} \vspace{1mm}
+			\begin{tabular}{|c|c|c|} 
+			\hline
+			\multirow{2}{*}{Cell}
+				& One & Two \\
+			\cline{2-3}
+				& Three & Four \\
+			\hline
+			Five & Six & Seven \\
+			\hline
+			\end{tabular}
+		\end{minipage} \hspace{1cm}
+		\begin{minipage}[c]{0.31\linewidth}
+			\caption{Second Table.} \vspace{1mm}
+			\begin{tabular}{|c|c|c|} 
+			\hline
+			\multirow{2}{*}{Cell}
+				& One & Two \\
+			\cline{2-3}
+				& Three & Four \\
+			\hline
+			Five & Six & Seven \\
+			\hline
+			\end{tabular}
+		\end{minipage}
+	\end{table}
+	
+	\pagebreak
+	
+	\kant[1-2] \kant[1]	
+	
+	\section{Multipage Tables}
+	
+	\subsection{Using the longtable Package}
+	\begin{longtable}[c]{|*{5}{c|}}
+		%%%%%%%%%% Table Heading: Main %%%%%%%%%%
+		\caption{This is the Main Caption of the
+			Long Table.} \\
+		\hline Counter & Data & Data & Data & Data \\
+		\hline \endfirsthead
+		%%%%%%%%%% Table Heading: Rest %%%%%%%%%%
+		\multicolumn{5}{c}{
+			\tablename~\thetable: 
+				Caption for the remaining pages.
+		} \\
+		\hline Counter & Data & Data & Data & Data \\
+		\hline \endhead
+		%%%%% Table Foots %%%%% 
+		\hline \multicolumn{5}{r}{Table is continued in 					the next page.....} \\
+		\endfoot
+		%%
+		\hline \multicolumn{5}{c}{This is the footer
+			of the "Last" page only !!} \\
+		\hline \endlastfoot
+		%%%%%%%%%% Table Data: Entries %%%%%%%%%%
+		Item & 1 & 2 & 3 & 4 
+			\footnote{Long Table Footnote} \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\ %%
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\ 
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & This is a large entry \\
+	\end{longtable} 
+
+	\bigskip
+
+	\subsection{Using the supertabular Package}
+	\tablecaption{SuperTabular Above Caption.}
+	\tablehead{
+		\hline
+		\textbf{Counter} & \textbf{Data} &
+		\textbf{Data} & \textbf{Data} & \textbf{Data}\\ 
+		\hline
+		}
+	\tabletail{
+		\hline \multicolumn{5}{r}{SuperTabular Tail.}\\	
+		\multicolumn{5}{r}{Yet Another Tail...} \\
+	}
+	\tablelasttail{\hline}
+	\begin{center}
+	\begin{supertabular}{|*{4}{c|}L|}
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & This is a large entry \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\
+		Item & 1 & 2 & 3 & 4 \\ 
+	\end{supertabular}
+	\end{center}
+	
+\end{document}

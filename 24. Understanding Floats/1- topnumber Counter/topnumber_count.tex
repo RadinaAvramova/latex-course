@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage{kantlipsum}
+
+% Float Setup
+\setcounter{topnumber}{4} % Default is (2)
+\setcounter{totalnumber}{4}
+
+\begin{document}
+	{\centering\Huge\bf The topnumber Counter}
+	\vspace{0.5cm}
+	% Three Table Floats
+	\begin{table}[t]
+		\begin{tabular}{|c|c|}
+			\hline A & B \\ \hline C & D \\ \hline
+		\end{tabular}
+	\end{table}
+	\begin{table}[t]
+		\begin{tabular}{|c|c|}
+			\hline A & B \\ \hline C & D \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[t]
+		\begin{tabular}{|c|c|}
+			\hline A & B \\ \hline C & D \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[t]
+		\begin{tabular}{|c|c|}
+			\hline A & B \\ \hline C & D \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\kant[1]
+	
+\end{document}

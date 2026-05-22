@@ -1,0 +1,66 @@
+\documentclass[twocolumn]{article}
+
+\usepackage{kantlipsum}
+\usepackage{stfloats}
+\usepackage{wrapfig2}
+
+\title{Tabulars in Multicolumn Documents}
+\date{}
+
+\begin{document}
+	\maketitle
+	\kant[1-3]
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|l|c|c|}
+			\hline
+			Item No. & Quantity & Price \\
+			\hline
+			1		 & 2		& 3.4 	\\
+			\hline
+			2		 & 1		& 5.2	\\
+			\hline 
+		\end{tabular}
+		\caption{Quantity-Price Table}
+	\end{table}
+	
+	% This table has been brought here for arrangement 			issues to put it at the top of the second page.
+	\begin{table*}[t]
+		\centering
+		\begin{tabular}{|*{8}{c|}}
+			\hline
+			AAA&AAA&AAA&AAA&AAA&AAA&AAA&AAA \\
+			\hline\hline
+			BBB&BBB&BBB&BBB&BBB&BBB&BBB&BBB \\
+			\hline
+		\end{tabular}
+		\caption{Wide Table in twocolumn Document.}
+	\end{table*}
+	
+	\begin{table*}[b]
+		\centering
+		\begin{tabular}{|*{8}{c|}}
+			\hline
+			AAA&AAA&AAA&AAA&AAA&AAA&AAA&AAA \\
+			\hline\hline
+			BBB&BBB&BBB&BBB&BBB&BBB&BBB&BBB \\
+			\hline
+		\end{tabular}
+		\caption{Wide Table in twocolumn Document.}
+	\end{table*}	
+	
+	\kant[1-7]
+	
+	\begin{wraptable}{l}{0.45\linewidth}
+		\begin{tabular}{|*{3}{c|}}
+			\hline
+			AAA & AAA & AAA \\
+			\hline\hline
+			BBB & BBB & BBB \\
+			\hline
+		\end{tabular}
+	\end{wraptable}
+	\kant[1]
+	
+\end{document}

@@ -1,0 +1,48 @@
+\begin{theindex}
+
+  \item MIT, 2
+
+  \indexspace
+
+  \item Exclamation !, 2
+
+  \indexspace
+
+  \item galaxies, 1
+  \item Gravity, 1, 2
+  \item Gravity Topic , \textit{1--2}
+
+  \indexspace
+
+  \item \LaTeX, 2
+
+  \indexspace
+
+  \item Pipe Operator \texttt{|}, 2
+  \item Proof, 3, 4, 5
+
+  \indexspace
+
+  \item "Quotation", 2
+
+  \indexspace
+
+  \item relativity, 2, \see{Gravity}{2}
+
+  \indexspace
+
+  \item universal, \seealso{\textbf{Universe}}{2}
+  \item Universe 
+    \subitem Earth
+      \subsubitem objects, 1
+
+  \indexspace
+
+  \item $\vec{F}$, \textbf{2}
+
+  \indexspace
+
+  \item $ax+b=c$, 1
+  \item Key@Visual, 2
+
+\end{theindex}
