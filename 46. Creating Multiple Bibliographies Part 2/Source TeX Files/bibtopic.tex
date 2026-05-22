@@ -1,0 +1,50 @@
+\documentclass{book}
+
+\usepackage{bibtopic} 
+
+\begin{document}
+
+	\bibliographystyle{abbrv}
+	
+	%% The First btUnit
+	\begin{btUnit}
+		\chapter{Book Citations}
+		%
+		\begin{btSect}[abbrv]{books}
+			\section{Citing D.E. Knuth Books}
+			These are some of his books: 
+			\cite{Knuth-CT}, and \cite{Knuth-ACP}.
+			\btPrintCited
+		\end{btSect}
+		%
+		\begin{btSect}[alpha]{books}
+			\section{Other Not Cited Books}
+			\btPrintNotCited
+		\end{btSect}
+	\end{btUnit}
+	
+	%% The Second btUnit
+	\begin{btUnit}
+		\chapter{Article Citations}
+		%
+		\begin{btSect}[plain]{articles}
+			\section{Citing D.E. Knuth Articles}
+			These are some of his articles: 							\cite{Knuth-TB}, and \cite{Knuth-LP}.
+			\btPrintCited
+		\end{btSect}
+		%
+		\begin{btSect}[alpha]{articles}
+			\section{Other Not Cited Articles}
+			\btPrintNotCited
+		\end{btSect}
+	\end{btUnit}
+	
+	%% The General btUnit: Global bibliography
+	\begin{btUnit}
+		\chapter*{Bibliography}
+		\begin{btSect}[plain]{general}
+			\btPrintAll
+		\end{btSect}
+	\end{btUnit}
+	
+\end{document}

@@ -1,0 +1,25 @@
+\begin{thebibliography}{Lam85}
+
+\bibitem[Knu86]{Knuth-CT}
+Donald~E. Knuth.
+\newblock {\em The {\TeX}book}, volume~A of {\em Computers and Typesetting}.
+\newblock Ad{\-d}i{\-s}on-Wes{\-l}ey, Reading, MA, USA, 1986.
+
+\bibitem[Knu98]{Knuth-MMA}
+Donald~E. Knuth.
+\newblock {\em Mathematical Methods of Analysis of Algorithm}.
+\newblock Stanford University Center for the Study of Language and Information,
+  Stanford, California, 2nd edition, 1998.
+
+\bibitem[Knu11]{Knuth-ACP}
+Donald~E. Knuth.
+\newblock {\em The Art of Computer Programming}.
+\newblock Volume 1--3. Addison-Wesley, 1968--2011.
+\newblock This is a multivolume book series.
+
+\bibitem[Lam85]{Lamport-latex}
+Leslie Lamport.
+\newblock {\em {\LaTeX:} A Document Preparation System}.
+\newblock Addison-Wesley, Reading, Massachusetts, 1st edition, 1985.
+
+\end{thebibliography}
