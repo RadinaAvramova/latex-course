@@ -1,0 +1,213 @@
+\documentclass[hideallsubsections]{beamer}
+
+\usepackage{pifont}
+
+\usetheme{Berkeley}
+\usecolortheme{orchid}
+\usefonttheme{serif}
+\useinnertheme{rounded}
+%\useoutertheme{infolines}
+
+%% The Title Page
+\title[TOC Title]{Making Presentations with Beamer}
+\subtitle{Introducing Beamer for Presentation Building 			in \LaTeX}
+\author[Author Name]{Complete Author Name \inst{1} \and Second Author Name \inst{2}}
+\institute[HIST]{\inst{1} Home Institute for Science and Tech \and \inst{2} HIST}
+\date[09/03/2023]{March 9, 2023}
+
+%% The Logo
+\titlegraphic{
+	\includegraphics[scale=0.5]{hist_logo.png}
+	\includegraphics[scale=0.5]{hist_logo1.png}
+}
+\logo{\includegraphics[scale=0.55]{hist_logo.png}}
+
+%%% Code for HIST
+%\definecolor{mycolor}{RGB}{51,51,179}
+%\begin{tikzpicture}
+%	\fill[mycolor] (-2,-2) rectangle (2,2);
+%	\fill (0,0) circle (1.5cm);
+%	\node[white] at (0,0) {\Huge $\mathcal{HIST}$};
+%\end{tikzpicture}
+
+%\setbeamercolor{structure}{fg=teal!50}
+
+\begin{document}
+	%% The Title Slide
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	\begin{frame}
+		\tableofcontents
+	\end{frame}
+	
+	\begin{frame}
+		\section{The First Section}
+		Put some content here for the first section...
+		
+		\vspace{1cm}
+		
+		\section{The Second Section}
+		Look at the Table of Contents on the left, you 				can see that "The Second Section" is 						highlighted. 
+	\end{frame}
+	
+	\begin{frame}
+		\section{The Third Section}
+		So its advisable to put every section in a 					separated slide....
+		\subsection{Subsection for Third Topic}
+			Look at the TOC slide above... \\
+		\subsubsection{Deep Dive}
+	\end{frame}
+	
+	\section{Blocks}
+	\frame{\tableofcontents[currentsection]}
+	{ % begin group
+	%% Using Templates
+	% 1. Setting the Color
+	\setbeamercolor{frametitle}{fg=green, bg=teal}
+	% 2. Seting the Font
+	\setbeamerfont{frametitle}{series=\bfseries}
+	% 3. Setting the overall Temp.
+	\setbeamertemplate{frametitle}{
+		\vspace{-1.5cm}
+		\begin{center}
+			\{\insertframetitle\}
+		\end{center}			
+	}
+	% Setting the style of the block envs
+	\setbeamertemplate{blocks}[default]
+	\setbeamercolor{block title}{
+		fg=black, bg=gray
+	}
+	\begin{frame}{Block Elements}
+		\setbeamercovered{transparent}
+		% The block env
+		\begin{block}<1>{A Chunk of Material}
+			Put some content here.........
+		\end{block}
+		% The alert block
+		\begin{alertblock}<2>{The Alert Block}
+			Put some content here.........
+		\end{alertblock}
+		% The example block
+		\begin{exampleblock}<3>{Example Block}
+			Some example content goes here....
+		\end{exampleblock}
+	\end{frame}
+	} % end group
+	
+	\AtBeginEnvironment{theorem}{
+		\setbeamercolor{block title}{bg=brown}
+	}
+	\begin{frame}{Theorem-Like Environments}
+		\begin{theorem}[The Pythagorean Theorem]
+			For a right triangle with legs of length 					$a$ and $b$ and hypotenuse of length $c$, 					we have: $a^2 + b^2 = c^2$.
+		\end{theorem} 
+		% Proof
+		\AtBeginEnvironment{proof}{ 
+   			\setbeamercolor{block title}{bg=olive}
+		}
+		\setbeamertemplate{qed symbol}{\checkmark}
+		\setbeamercolor{qed symbol}{fg=olive}
+		\begin{proof}
+    		Proof body.........
+  		\end{proof}
+	\end{frame}
+	
+	\begin{frame}{Itemize and Enumerate}
+		% Itemize 
+		\setbeamercolor{block title}{bg=teal!80}
+		\setbeamerfont{block title}{size=\Large}
+		\setbeamertemplate{itemize item}[circle]
+		\setbeamercolor{local structure}{fg=teal!80}
+		\begin{block}{Some Itemize List}
+			\begin{itemize}
+				\item Item No. One 
+				\item Item No. Two 
+				\item Item No. Three
+				\item[\ding{225}] PiFont Item.
+			\end{itemize}
+		\end{block}	
+		% Enumerate
+		\setbeamertemplate{enumerate item}[square]
+		\setbeamercolor{local structure}{fg=black!80}
+		\begin{enumerate}
+			\item Item No. One
+			\item Item No. Two
+			\item Item No. Three
+		\end{enumerate}			
+	\end{frame}
+	
+	%% Creating Multi-column Content
+	\section{Multiple Columns}
+	\begin{frame}{Multi-Column}
+		\begin{columns}
+			% The First Column
+			\column{0.45\textwidth}
+			\begin{block}{Definition} 
+				Some Definition....... 
+			\end{block} %\pause
+			% The Second Block
+			\column{0.45\textwidth}
+			\begin{exampleblock}{Natural Log} 
+				$\ln(x)=\log_e(x)$ 
+			\end{exampleblock} 
+		\end{columns}
+	\end{frame}
+	
+	\section{Piece-wise Presentations}
+	\begin{frame}{The pause Command Method}
+		\begin{enumerate}
+			\item The First Item to Appear. \pause
+			\item The Second Item to Appear. \pause
+			\item The Third Item to Appear.	
+		\end{enumerate}
+	\end{frame}
+	
+	\section{Overlay Specification}
+	\begin{frame}{Flexible Overlays}
+		\begin{enumerate}[<+->]
+			\item Red
+			\item Green
+			\item Blue
+			\item<2> \textcolor{teal}{Intruder}
+			%% Increased
+			\item<1-2,4-> \textcolor{cyan}{Cyan Element}
+			\item Teal
+			\item Olive 
+		\end{enumerate}
+	\end{frame}
+	
+	%% Overlay Special Commands
+	\begin{frame}[label=tbl]
+			{Table Overlay Specification}
+		\setbeamercovered{transparent}
+		\begin{table}
+		\centering
+		\begin{tabular}{c|c}
+			\hline
+			\onslide<1->
+			\textbf{Item} & \textbf{Price} \\
+			\hline
+			 \onslide<2-> RAM  & 1500  \\								 \onslide<4-> GPU  & 1800  \\								 \onslide<3-> CPU  & 2300  \\
+			\hline
+		\end{tabular}
+		\uncover<4>{\caption{Caption for this Table}}	
+		\end{table}
+	\end{frame}
+	
+	\subsection{Repeating Slides or Frames}
+	\againframe<3>{tbl}
+	
+	\section{Hyper Linking}
+	\begin{frame}{Hyperlinks between Frames}
+		\begin{itemize}[<+->]
+			\item This is a button that will lead you 					back to the third slide of the frame 						labeled \textit{tbl}
+				\hyperlink<1>{tbl<3>}{
+					\beamerreturnbutton{Return}				
+				}
+			\item This is The second slide of the 						hyperlink frame.....
+		\end{itemize}
+	\end{frame}
+\end{document}

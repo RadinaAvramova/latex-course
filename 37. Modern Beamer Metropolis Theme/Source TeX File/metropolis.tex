@@ -1,0 +1,107 @@
+\documentclass[dvipsnames, handout]{beamer}
+
+\usetheme{metropolis}
+
+\usepackage{kantlipsum}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfpages}
+
+% The Title Frame
+\title{The Modern beamer Theme metropolis}
+\author{Matthias Vogelgesang}
+\institute{Home Institute for Science and Technology}
+\date{\today}
+
+\titlegraphic{
+	\definecolor{metro}{RGB}{35,55,59}
+	\begin{tikzpicture}
+		\useasboundingbox (-2,-2) rectangle (10,2);
+		\fill[metro] (3,1.4) circle (0.7cm);
+		\node[white] at (3,1.4) 
+			{\large $\mathcal{HIST}$};
+	\end{tikzpicture}
+}
+
+\pgfpagesuselayout{4 on 1}[a4paper, landscape, 
+	border shrink=5mm]
+
+\metroset{
+	sectionpage=simple, block=fill, numbering=none
+}
+
+\AtBeginEnvironment{beamerboxesrounded}{
+	\setbeamercolor{block head}{fg=white,bg=black}
+	\setbeamercolor{block body}{fg=black,bg=blue!30}
+}
+
+\begin{document}
+	\maketitle
+	
+	\section{First Section}
+	
+	\begin{frame}[allowframebreaks]
+		{First metropolis Frame}
+		\kant[1]
+	\end{frame}
+	
+	\begin{frame}{Blocks within metropolis}
+		\begin{block}{Block}
+			Some text here ............
+		\end{block}
+		\begin{alertblock}{Caution}
+			Alert !!!!
+		\end{alertblock}
+		\begin{exampleblock}{Example}
+			An example within metropolis
+		\end{exampleblock}
+		% The description listing env
+		\begin{description}
+			\item[IEEE] Institute of Electrical and 					Electronics Engineers
+			\item[ASME] American Society of Mechanical 					Engineers
+			\item[ASCE] American Society of Civil 						Engineers
+		\end{description}
+	\end{frame}
+	
+	\setbeamercolor{colorboxblock}{
+		fg=white, bg=black	
+	}
+	\begin{frame}{The beamer colorbox Blocks}
+		\begin{beamercolorbox}[
+			sep=15pt, center, rounded=true, shadow=true
+		]
+		{colorboxblock}
+			{\Large A Table and a Figure in Columns
+			\\[10pt]}
+			\begin{columns}
+			\column{0.75\textwidth}
+			\begin{table}[t]
+				\centering
+				\begin{tabular}{c|c}
+				\hline
+				\textbf{Item} & \textbf{Price} \\
+				\hline
+				RAM  & 1500  \\
+				GPU	 & 1800	 \\
+				CPU  & 2300  \\
+				\hline
+				\end{tabular}
+			\end{table}
+			\column{0.75\textwidth}
+			\includegraphics[scale=0.8]										{hist_logo.png}
+			\end{columns}
+		\end{beamercolorbox}
+		\vphantom{---------------}
+		% The rounded version
+		\begin{beamerboxesrounded}[
+				upper=block head, lower=block body,
+				shadow=true
+			]{Theorem}
+			$A=B$
+		\end{beamerboxesrounded}
+	\end{frame}
+	
+	\begin{frame}[standout]
+		Thanks for Watching !!
+	\end{frame}
+\end{document}

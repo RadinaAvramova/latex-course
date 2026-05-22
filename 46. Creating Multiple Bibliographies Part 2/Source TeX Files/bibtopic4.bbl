@@ -1,0 +1,23 @@
+\begin{thebibliography}{Lam78}
+
+\bibitem[Knu84]{Knuth-LP}
+Donald~E. Knuth.
+\newblock Literate programming.
+\newblock {\em The Computer Journal}, 27(2):97--111, 1984.
+
+\bibitem[Knu88]{Knuth-OOP}
+Donald~E. Knuth.
+\newblock Object-oriented programming.
+\newblock {\em Computer Journal}, 31(4):308--311, 1988.
+
+\bibitem[Knu89]{Knuth-TB}
+Donald~E. Knuth.
+\newblock {Typesetting Concrete Mathematics}.
+\newblock {\em TUGboat}, 10(1):31--36, April 1989.
+
+\bibitem[Lam78]{Lamport-TC}
+Leslie Lamport.
+\newblock Time, clocks, and the ordering of events in a distributed system.
+\newblock {\em Communications of the ACM}, 21(7):558--565, 1978.
+
+\end{thebibliography}

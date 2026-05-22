@@ -1,0 +1,36 @@
+\documentclass{beamer}
+
+\usepackage{kantlipsum}
+
+\begin{document}
+
+	\begin{frame}[allowframebreaks, t]
+		\frametitle{Title of the Frame}
+		\framesubtitle{Subtitle for the Frame}
+		\kant[1]
+		The use of this option is evil. In a (good) presentation you prepare each slide carefully and think
+twice before putting something on a certain slide rather than on some different slide. Using the
+allowframebreaks option invites the creation of horrible, endless presentations that resemble more
+a “paper projected on the wall” than a presentation. Nevertheless, the option does have its uses.
+Most noticeably, it can be convenient for automatically splitting bibliographies or long equations.
+	\end{frame}
+	
+	\begin{frame}[fragile, t]{Frame with Verbatim Text}
+		\begin{verbatim}
+			\begin{LaTeX}
+				% Some \LaTeX Code Here !!
+			\end{LaTeX}
+		\end{verbatim}
+	\end{frame}
+	
+	\begin{frame}[allowframebreaks, allowdisplaybreaks]
+		\begin{align*}
+			x&=y \\ x&=y \\ x&=y \\ x&=y \\ x&=y \\ 
+			x&=y \\ x&=y \\ x&=y \\ x&=y \\ x&=y \\ 
+			x&=y \\ x&=y \\ x&=y \\ x&=y \\ 
+			x&=2*y \\ 
+			x&=y \\ x&=y \\ x&=y \\ x&=y \\ x&=y 
+		\end{align*}
+	\end{frame}
+	
+\end{document}

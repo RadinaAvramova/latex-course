@@ -1,0 +1,6 @@
+\frametitle{Frame with Verbatim Text}
+\begin{verbatim}
+			\begin{LaTeX}
+				% Some \LaTeX Code Here !!
+			\end{LaTeX}
+		\end{verbatim}

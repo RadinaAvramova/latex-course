@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{Knuth-ACP}
+Donald~E. Knuth.
+\newblock {\em The Art of Computer Programming}.
+\newblock Volume 1--3. Addison-Wesley, 1968--2011.
+\newblock This is a multivolume book series.
+
+\bibitem{Knuth-LP}
+Donald~E. Knuth.
+\newblock Literate programming.
+\newblock {\em The Computer Journal}, 27(2):97--111, 1984.
+
+\bibitem{Knuth-CT}
+Donald~E. Knuth.
+\newblock {\em The {\TeX}book}, volume~A of {\em Computers and Typesetting}.
+\newblock Ad{\-d}i{\-s}on-Wes{\-l}ey, Reading, MA, USA, 1986.
+
+\bibitem{Knuth-OOP}
+Donald~E. Knuth.
+\newblock Object-oriented programming.
+\newblock {\em Computer Journal}, 31(4):308--311, 1988.
+
+\bibitem{Knuth-TB}
+Donald~E. Knuth.
+\newblock {Typesetting Concrete Mathematics}.
+\newblock {\em TUGboat}, 10(1):31--36, April 1989.
+
+\bibitem{Knuth-MMA}
+Donald~E. Knuth.
+\newblock {\em Mathematical Methods of Analysis of Algorithm}.
+\newblock Stanford University Center for the Study of Language and Information,
+  Stanford, California, 2nd edition, 1998.
+
+\bibitem{Lamport-TC}
+Leslie Lamport.
+\newblock Time, clocks, and the ordering of events in a distributed system.
+\newblock {\em Communications of the ACM}, 21(7):558--565, 1978.
+
+\bibitem{Lamport-latex}
+Leslie Lamport.
+\newblock {\em {\LaTeX:} A Document Preparation System}.
+\newblock Addison-Wesley, Reading, Massachusetts, 1st edition, 1985.
+
+\end{thebibliography}
