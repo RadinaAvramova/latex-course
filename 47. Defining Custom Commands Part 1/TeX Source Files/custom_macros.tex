@@ -1,0 +1,250 @@
+\documentclass{article}
+
+\usepackage{kantlipsum, xcolor, amsmath}
+\usepackage{twoopt}
+\usepackage{bm}
+
+\title{\bf User Defined Commands}
+\date{}
+
+\renewcommand{\textheight}{650pt}
+
+\begin{document}
+	\maketitle
+	
+	\section{New Commands - Static} 
+	\newcommand{\bibtex}{\textsc{Bib}\TeX~}
+	\bibtex \\
+	Typesetting \bibtex with the new command. \\
+	
+	\noindent
+	\newcommand{\texnames}{Some logos: \TeX~\LaTeX}
+	\texnames \\
+	
+	\newcommand{\creq}{
+		{\color{blue}{$\mathsf{a^2=b^2+c^2}$}}	
+	}
+	Here is an equation \creq, more \creq
+	
+	\vspace{0.5cm}
+	
+	\section{New Commands - Dynamic}
+	\newcommand{\sentence}[2]{% Max of 9 args.
+		This is the \textit{#1} of sentence. 
+		This is the #2 output.
+	}
+	\sentence{output}{second} \\
+	\sentence{\textbf{output}}{second again}
+	
+	\newcommand{\kp}[1]{\kant[1-#1]}
+	\kp{2}
+	
+	\newcommand{\texcmd}[1]{
+		{
+			\color{red!70}{\texttt{\detokenize{#1}}}		
+		}
+	}
+	Trying the \verb|\texcmd| to produce \texcmd{\LaTeX}
+	
+%	\texcmd{\newcommand{\cmd}{def}}
+	\noindent \\
+	{\color{blue!50}{\verb|\newcommand{\cmd}{def}|}}
+	
+	\newcommand{\chain}[3]{
+		% #1: y, #2: x, #3: u
+		$
+			\frac{d#1}{d#2}	= 
+				\frac{d#1}{d#3} \cdot \frac{d#3}{d#2}
+		$	
+	}
+	If $y=f(u)$ and $u=f(x)$, then \chain{y}{x}{u}
+	
+	\newcommand{\intx}[3]{
+		$
+			\int_{#3}^{\inf} #2\, d#1 	
+		$
+	}
+	Integrating $x$: \intx{t}{x}{0} % {#1}{#2}{#3}
+	
+%	Trying to use $\intx{t}{x}{0}$
+
+	\newcommand{\dd}[2]{
+		\ensuremath{
+			\frac{d#1}{d#2}		
+		}	
+	}
+	Differentiating $x$ by time: $\dd{x}{t}$
+	
+	\subsection{Embedding Optional Arguments}
+	
+	\subsubsection{One as Optional}
+	% \newcommand{\name}[1][def_first]{body}
+	\newcommand{\bt}[1][Default]{
+		{\color{blue}{#1}}
+	}
+	\bt \\
+	\bt[New]
+	
+	\subsubsection{More than one, 1st being Optional}
+	% \newcommand{\name}[args][def_first]{body}
+	\newcommand{\txtfrac}[3][def]{
+		\textit{#1/#2}	#3
+	}
+	\txtfrac{den}{three} \\
+	\txtfrac[new]{den}{three again}
+	
+	\newcommand{\redtext}[2][]{
+		\textcolor{red!#1}{#2}	
+	}
+	This is a \redtext{Red Text} Vs. New 
+		\redtext[50]{Red Text}
+		
+	\subsection{Enhancing/Integrating User Commands}
+	\newcommand{\x}{$x$\,}
+	The x-command is now printing \x
+	\newcommand{\xy}{
+		\x $y$
+	}
+	Moreover, it's value can be integrated inside the 			new \xy
+	
+	\pagebreak
+	
+	\section{New Commands with Two Optional Arguments}
+	\newcommandtwoopt{\twoopt}[3][A][B]{#1, #2, #3}
+	\begin{description}
+		\item[Mandatory with Default Optional]
+			\twoopt{Third Argument}
+		\item[Overriding First Optional Only]
+			\twoopt[First New]{Third Argument}
+		\item[Overriding both Optional]
+			\twoopt[1st][2nd]{Still Three}
+		\item[Empty First Argument]
+			\twoopt[][Second]{Three Only}
+		\item[Empty Second Argument]
+			\twoopt[First][]{Third}
+		\item[Empty both Optional]
+			\twoopt[][]{Three Only}
+	\end{description}
+	
+	\subsection{Renewing cmds with two optional args}
+	\renewcommandtwoopt{\twoopt}[4][Q][P]{
+		\underline{#1}
+		\textcolor{#4}{#2}	
+		\textit{#3}
+	}
+	\twoopt{Some input text}{green} \\[5pt]
+	\twoopt[][\textsc{p}]{Some input text}{blue}\\[5pt]
+	\twoopt[\texttt{Q}][]{Some input text}{red}
+	
+	\subsection{Omitting Defaults of Optional Arguments}
+	\newcommandtwoopt{\txtforamt}[3][][]{
+		#1 #2 #3	
+	}
+	\txtforamt{Some text} \\[5pt]
+	\txtforamt[First Only]{Third Mandatory}
+	
+	\pagebreak
+	
+%	\renewcommand{\thesection}{\Alph{section}}
+	\section{Redefining Commands}
+%	\renewcommand{\thesubsection}{
+%		\Alph{section}.\roman{subsection}
+%	}
+	\subsection{Altering the Built-in Commands}
+	\renewcommand\tablename{Tabular}
+	\renewcommand\thetable{\roman{table}}
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|}
+			\hline A \\ \hline 
+		\end{tabular}
+		\caption{Cell Table}
+	\end{table}
+	
+	\noindent\\[5pt]
+	\renewcommand{\textbf}[1]{
+		\underline{\bfseries #1}
+	}
+	Some \textbf{New Text bf} surrounding text.
+	
+	\subsubsection{Be Careful Redefining Existing cmds}
+	{
+	The \textbackslash\texttt{vec} command was $\vec{v}$
+	\renewcommand{\vec}[1]{ \mathbf{#1} }
+	but now it's $\vec{v}$
+	} \\
+	So, we need to have a new command to exhibit
+	\newcommand{\Vectorize}[1]{
+		\bm{\vec{#1}}	
+	}
+	this $\Vectorize{v}$
+	
+	\subsection{Altering the User-defined Commands}
+	\renewcommand{\xy}{xyz}
+	The \verb|\xy| is now printing \xy 
+	
+%	\renewcommand{\thesection}{\arabic{section}}
+	
+	\pagebreak
+	
+	\section{Nesting Definitions of New Commands}
+	
+	\subsection{Using \textbackslash newcommand}
+	\newcommand{\Father}{
+		{% Group for Inner
+		\newcommand{\Son}{
+				\textcolor{blue}{Son Content}		
+			}	
+		Father contains \Son and \Son
+		}% End group
+	}
+	\Father \\
+	\Father \\
+	\Father
+	
+	\begin{description}
+		\item[Second Call] To call the outer command 					more than once you have to surround the 					inner commands with \{\}.
+		\item[Scope of Inner] If the inner commands are 				surrounded by \{\}, then you cannot use them 			outside their scope, but if no brackets 					exist, then you can use them freely globally 			in the document.
+	\end{description}
+	
+	\subsection{Using \textbackslash providecommand}
+	\providecommand{\Father}{\textbf{Text}}
+%	\newcommand{\Father}{\textit{Text}}
+	\Father
+	
+	\noindent\\[5pt]
+	\newcommand{\Outer}{
+		\providecommand{\Inner}{
+			\textcolor{orange}{Son Content}	
+			\providecommand{\Inside}{
+				\textcolor{red}{Grand Content}			
+			}	
+		}
+		Outer contains \Inner and \Inside
+	}
+	\Outer \\
+	\Outer
+	
+	\begin{description}
+		\item[Provide Behavior] Allows for modular and 				conditional definitions of commands in \LaTeX. 				It's a feature often used in package development 		or when writing complex documents to ensure that 		commands are available when needed, but also to 			prevent errors due to command name clashes.
+		\item[Scope of Inner] Note that the\verb|					\Inner| is accessible outside the parent 					container, \Inner and also \Inside
+	\end{description}
+	
+	\subsection{Arguments for Nested Definitions}
+	\newcommand{\father}[1]{
+		\providecommand{\son}[1]{
+			\textcolor{green!80}{##1}
+			\providecommand{\grand}[1]{
+				\textcolor{teal!80}{####1}	
+				\providecommand{\fourth}[1]{
+					\textcolor{orange!80}{########1}		
+				}	
+			}
+		}
+		\textcolor{red!80}{#1} contains 
+			\son{Son Content} and \grand{Grand Content}
+			and also \fourth{Fourth Level}!
+	}
+	\father{Father}
+\end{document}

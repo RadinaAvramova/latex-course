@@ -1,0 +1,184 @@
+\documentclass{article}
+
+\usepackage{tikz, xcolor}
+\usepackage{ifthen}
+\usepackage[twoside]{fancyhdr}
+
+\title{\bf Decision Making for Typesetting}
+\date{}
+
+%% The even-odd Headers Setup
+\newcommand{\checkpage}{
+  \ifthenelse{\isodd{\value{page}}}
+    {\textcolor{red}{This page is Odd}}
+    {\textcolor{blue}{This page is Even}}
+}
+\pagestyle{fancy}
+% Clear the default header and footer
+\fancyhf{}
+% Provide our new header and footer
+\fancyhead[LO, RE]{\checkpage} % LeftOdd, RightEven
+\fancyfoot[c]{\thepage}
+
+\begin{document}
+	\maketitle
+	
+	\section{\TeX\, Decision Making} 
+	%% 1. Define a Switch
+	\newif\ifshow
+	%% 2. Set the Logical State
+	\showfalse
+	%% 3. Construct the Condition
+	\ifshow % is the switch show is true
+		Show content based on true switch.
+	\else % will be typeset when show is false
+		The show switch is false.
+	\fi
+	
+	%% Converting the state 
+%	\showtrue
+%	%% New usage
+%	\ifshow
+%		New conditional statement.
+%	\fi 
+	
+	\subsection{Conditional New Command}
+	\newif\ifform
+	\formtrue
+	\newcommand{\cond}[1]{
+		%% Conditional Workflow
+		\ifform 
+			\textcolor{green}{#1}	
+		\else
+			\textcolor{red}{#1}
+		\fi
+	}
+	This will be the output when the \textit{form} 					switch command \cond{is on -true-}. \\[5pt]
+	%
+	When we turn it off \formfalse this will be 
+		\cond{the output -false-}.
+		
+		
+	\section{The \texttt{ifthen} Package}
+	
+	\subsection{Basic Usage - Boolean Switch}
+	\newboolean{switch}
+	\setboolean{switch}{false}
+	\ifthenelse{\boolean{switch}}
+			{% then clause: if <switch> is true
+				\textbf{Bold Output}
+			}
+			{% else clause: if <switch> is false
+				\textit{Italic Output}
+			}
+	
+	%% Embedding this in a new command
+	\newcommand{\ifcmd}[2]{
+		\provideboolean{ifswitch}
+		\setboolean{ifswitch}{#1}
+		\ifthenelse{\boolean{ifswitch}}
+			{\textcolor{green!80}{#2}}
+			{\textcolor{red!70}{#2}}
+	}
+	\ifcmd{true}{Content of true boolean test} 
+	\ifcmd{false}{Content of false boolean test}
+	
+	\subsection{Comparing Strings Test}
+	\newcommand{\bforit}[2]{
+		\ifthenelse{\equal{#1}{bold}}
+			{\textbf{#2}}
+			{\textit{#2}}	
+	}
+	\bforit{bold}{This is a bold text} \\[3pt]
+	\bforit{Bold}{This is an Italic Output} 
+	
+	\newcommand{\blackball}[1][]{
+		\ifthenelse{\equal{#1}{c}}{\begin{center}}{}
+		\begin{tikzpicture}
+			\filldraw (0,0) circle (10pt);
+		\end{tikzpicture}	
+		\ifthenelse{\equal{#1}{c}}{\end{center}}{}
+	}
+	\blackball
+	\blackball[c]
+	
+	\subsection{Comparing Numbers Test}
+	\newcommand{\condn}[2]{
+		\ifthenelse{#1>0}
+			{\textbf{#2}}
+			{\textit{#2}}	
+	}
+	\condn{1}{This is a Bold Text}, and this is an
+		\condn{-1}{Italic Text}
+		
+	\subsection{Comparing Lengths Test}
+	\newcommand{\drule}[2]{
+		\ifthenelse{\lengthtest{#1>0cm}}
+			{\rule{#1}{#2}}
+			{\textcolor{red}{Dimension is Wrong}}
+	}
+	\drule{5cm}{2pt}
+	\drule{-1cm}{3pt}
+	
+	\subsection{The isodd Test}
+	\newcommand{\evenodd}{
+		\ifthenelse{\isodd{\thepage}}
+			{\textcolor{red}{This is an Odd Page}}
+			{\textcolor{blue}{This is an Even Page}}	
+	}
+	\evenodd
+	
+	\pagebreak \evenodd
+	
+	\subsection{Check if undefined}
+	\newcommand{\isthere}[2]{ % #1: \cmd_name
+		\ifthenelse{\isundefined{#1}}
+			{% Then clause: <true> - #1 doesn't exist
+				\newcommand{#1}{\textbf{#2}}
+				#1	% Using the new command
+			}
+			{The requested macro already defined, 
+			   and here is it's body: #1}	
+	}
+	
+	\isthere{\cmdbf}{Content for New Command}	\\[5pt]
+	\isthere{\cmdbf}{This text won't be typeset}
+	
+	\pagebreak \blackball[c]
+	
+	\subsection{Logically Adjusting Tests}
+	\newcommand{\iseven}{
+		\ifthenelse{\NOT \isodd{\thepage}}
+			{\textcolor{blue}{This is an Even Page}}
+			{\textcolor{red}{This is an Odd Page}}
+	}
+	\iseven
+	
+	\pagebreak \blackball[c]
+	\iseven
+	
+	\subsection{Combining Tests}
+	\newboolean{ruled}
+	\setboolean{ruled}{true}
+	%
+	\newcommand{\crule}[2]{
+		\ifthenelse{% Combined Test
+			\isodd{\thepage} \AND \boolean{ruled}
+			}
+			{% then clause: odd --> red
+				\textcolor{red}{\rule{#1}{#2}}
+			}
+			{% else clause: even --> blue	
+				\textcolor{blue}{\rule{#1}{#2}}
+			}
+	}
+	\crule{5cm}{2pt} \\ 
+	% \isodd <false> \boolean <true>: <false exp>
+	The boolean \textit{ruled} is true, but \iseven 			that's why the rule is blue.
+	
+	\pagebreak
+	
+	Now the rule is red \crule{5cm}{2pt} \\[5pt]
+	%% \isodd <true> and \boolean <true>: <true exp>
+	Because -\iseven and boolean \textit{ruled} is true.
+\end{document}

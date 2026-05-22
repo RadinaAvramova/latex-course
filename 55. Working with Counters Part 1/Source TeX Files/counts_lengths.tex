@@ -1,0 +1,319 @@
+\documentclass{article}
+
+\usepackage{kantlipsum, tikz, titling, adjustbox}
+\usepackage{fmtcount}
+\usepackage{ifthen}
+\usepackage{xprintlen}
+
+\title{\bf \LaTeX\,Counters and Lengths}
+\date{}
+
+\setlength{\droptitle}{-3cm}
+
+\begin{document}
+	\maketitle
+	
+	\section{Defining and Setting New Counters}
+	
+	\subsection{Basic Counters Operations}
+	\newcounter{Number}
+	
+	\begin{description}
+		\item[The Initial Value is] \theNumber
+		%
+		\item[Setting a Value for the Counter]
+			\setcounter{Number}{15}
+			Now the value becomes \theNumber
+		%
+		\item[Stepping the Counter]
+			\stepcounter{Number}
+			Now the value becomes \theNumber
+		%
+		\item[Adding a Constant Value]
+			\addtocounter{Number}{4}
+			Now the value becomes \theNumber
+		%
+		\item[Decreasing the Counter Value]
+			\addtocounter{Number}{-1}
+			Now the value becomes \theNumber
+		%
+		\item[Doubling the Counter Value]
+			\addtocounter{Number}{\theNumber}
+			Now the value becomes \theNumber
+	\end{description}
+	
+	\subsection{Correlated/Hierarchical Counters}
+	\vphantom{---}
+	\begin{description}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		%%%%%%%%% First Method %%%%%%%%%%%
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item \adjustbox{center}{
+			\large\bfseries Using the 
+			\verb|\newcounter{follower}[leader]|
+		}
+		\newcounter{No}[Number]
+		\item[Value of the \textit{No} Counter] 
+			defaults to \theNo\, also.
+		\item[Setting the New Counter \textit{No}] 
+			\setcounter{No}{5}		
+			value to be \theNo, and keep in mind 						that the leader is of value \theNumber
+		\item[Adding to the Follower] % -> Add
+			\addtocounter{No}{5} to be \theNo
+		\item[Stepping the Follower]  % -> Step
+			\stepcounter{No} to be \theNo 
+		\item[Changing the Leader to Reset the Follower]
+			\stepcounter{Number}
+			Now the leader is \theNumber, 
+			and follower is \theNo
+		\item[Desired Typeset of the Follower]
+			\theNumber.\theNo \\[5pt]
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		%%%%%%%%% Second Method %%%%%%%%%%
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item \adjustbox{center}{
+			\large\bfseries Using the 
+			\verb|\counterwithin{follower}{leader}|		
+		} 
+		%% Create the new counters
+		\newcounter{Leader} \newcounter{Follower}
+		\item[Set the Leader] \setcounter{Leader}{5}
+			The Leader Value is \theLeader
+		\counterwithin{Follower}{Leader}
+		\item[Print the Follower] 
+			The Initial print of the Follower 							is \theFollower , Zero of course.
+		\item[If stepped] \stepcounter{Follower}
+			The Follower will be \theFollower
+		\item[Now, stepping the Leader]
+			\stepcounter{Leader} to reset the 							Follower to \theFollower\, zero again.
+		\item[The Leader and The Follower]
+			are \theLeader, and \theFollower
+		%%
+		\newcounter{Within} \setcounter{Within}{5}
+		\counterwithin{Within}{subsection}
+		\item[Here the value of] 
+			\textit{Within} is \theWithin, Linked to the	
+			parent subsection.
+	\end{description}
+	
+	\subsection{New Subsection Leader to Reset Within}
+	Here the value of \textit{Within} changes to 
+	\theWithin\, to match the subsection number. 
+	
+	\setcounter{Within}{8} % Giving it a value first
+	\noindent
+	We're still in the coupled mode, so \textit{Within} 		is \theWithin \\[5pt]
+	
+	%% Decoupling or Freeing the Within Counter
+	\counterwithout{Within}{subsection}
+	The \textit{Within} is now \theWithin
+	
+	\section{Methods of Printing Counters Value}
+	\newcounter{seven} \setcounter{seven}{7}
+	\begin{description}
+		\item[1. Arabic] 			\arabic{seven}
+		\item[2. Lower Case roman]  \roman{seven}
+		\item[3. Upper Case Roman]  \Roman{seven}
+		\item[4. Lower Case Letter] \alph{seven}
+		\item[5. Upper Case Letter] \Alph{seven}
+		\item[6. Foot Note Style]   \fnsymbol{seven}
+	\end{description}
+	
+	\subsection{Using the \textit{fmtcount} Package}
+	\newcounter{four} \setcounter{four}{24}
+	
+	\begin{description}
+		\item[Ordinal] \ordinal{four}
+		\item[Number String] \NUMBERstring{four}
+		\item[Ordinal String] \ordinalstring{four} 
+   		 	and \Ordinalstring{four} 
+   		 	and \ORDINALstring{four}
+	\end{description}	
+	
+	\subsection{The \textbackslash \texttt{value} cmd}	
+	\newcounter{one} \stepcounter{one} 
+	
+	\newcommand{\counterule}[1]{
+		\rule{\value{#1}cm}{2pt}
+	}
+	\noindent The value of one is \theone \\
+	\counterule{one}
+	
+	\addtocounter{one}{\value{one}}
+	\noindent Now value of \textit{one} is \theone \\
+	\counterule{one} \\[7pt]
+	
+	This command is used to access the value of certain counter in order to use inside a latex command for some purpose like adding to a counter. It is useful for doing arithmetic with counters. you use \verb|\value{count}| for situations where LaTeX is expecting to process a numeric value. It is intended for use within other commands to access the value of the counter as a TeX number. 
+	
+	\pagebreak
+	
+	\section{Practical Examples of Using Counters}
+	
+	\subsection{New Structure Containing Counter}
+	\newcounter{mytheoremcnt} 
+	\newenvironment{mytheorem}[1][]{
+		\stepcounter{mytheoremcnt}
+		\noindent\textbf{
+			Theorem \Roman{mytheoremcnt}. #1		
+		}
+		\itshape
+	}{
+		\\[5pt]
+	}	
+	
+	\begin{mytheorem}
+		Gravity or gravitation, is a natural phenomenon by which all things with mass or energy-including planets, stars, galaxies, and even light are brought toward (or gravitate toward) one another. On Earth, gravity gives weight to physical objects, and the Moon's gravity causes the ocean tides. 
+	\end{mytheorem}
+	
+	\begin{mytheorem}[Optional Headline]
+		The gravitational attraction of the original gaseous matter present in the Universe caused it to begin coalescing and forming stars and caused the stars to group together into galaxies, so gravity is responsible for many of the large-scale structures in the Universe. Gravity has an infinite range, although its effects become weaker as objects get further away.
+	\end{mytheorem}
+	
+	\subsection{Creating a New Ordered List}
+	\newcounter{RMCounter} 
+	
+	\newenvironment{RMList}{
+		\renewcommand{\item}[1][]{	
+			\stepcounter{RMCounter}
+			\leavevmode\\[5pt]	
+			\begin{tikzpicture}[baseline=(C.base)]
+				\filldraw (0,0) circle (10pt); 
+    			\node[text=white] (C) 											{\small\bf \Roman{RMCounter}};
+			\end{tikzpicture}
+			\textbf{\large ##1}
+		}
+	}{
+		\setcounter{RMCounter}{0}
+		\vspace{0.5cm}
+	}
+	% First Instance
+	\begin{RMList}
+		\item[Optional] First Item. 
+		\item Second Item. \item Third Item.
+		\item Fourth Item. \item Fifth Item.
+	\end{RMList}
+	
+	\begin{RMList}
+		\item First  Item Again. 
+		\item Second Item Again. 
+	\end{RMList}
+	
+	\subsection{Different Approach for New Lists}
+	\newcounter{BallCounter}
+	\newcommand{\Entry}[2][]{
+		\stepcounter{BallCounter}
+		\begin{tikzpicture}[baseline=(C.base)]
+    		\node[fill, circle, text=white,
+    			  inner sep=0pt, minimum size=20pt] (C) 				 	{\bf \Alph{BallCounter}};
+    	\end{tikzpicture}
+    	\textbf{#1} #2 \\[5pt]
+	}
+	\newenvironment{TikzBallList}[1][]{
+		{\noindent\large\bf #1 \leavevmode\\[7pt]}
+	}{
+		\setcounter{BallCounter}{0}
+		\vspace{0.5cm}
+	}
+	
+	\begin{TikzBallList}
+		\Entry{First Entry.} 
+		\Entry[Head]{Second Entry.}
+		\Entry{Third Entry.} 
+	\end{TikzBallList}
+	
+	\begin{TikzBallList}[Optional Title for the List]
+		\Entry{First Ball Entry.} 
+		\Entry[Descriptive Head]{Second Ball Entry.}
+	\end{TikzBallList}
+	
+	\section{Looping: While Statement}
+	\newcounter{ballcnt}
+	\setcounter{ballcnt}{5}
+	
+	\whiledo{\NOT \theballcnt=0}{
+		\theballcnt
+		\begin{tikzpicture}
+			\filldraw (0,0) circle (0.5cm);
+		\end{tikzpicture}
+		% Decreasing the counter value by one at each 				iteration till it reaches zero to stop the loop.
+		\addtocounter{ballcnt}{-1}
+	}
+	\\[5pt]
+	
+	%% Wrapping inside a new structure
+	\newcounter{ballnum}
+ 	\newcommand{\cballs}[3]{
+		\setcounter{ballnum}{#1}
+		% The Loop 
+		\whiledo{\NOT \value{ballnum}=0}{
+			\noindent
+		    \begin{tikzpicture}
+				\filldraw[#2] (0,0) circle (#3);
+		    \end{tikzpicture}
+		    \addtocounter{ballnum}{-1}
+		}
+	}
+	
+	\cballs{5}{blue!60}{0.5} \\[5pt]
+	\cballs{5}{red!60}{0.5}
+	
+	\pagebreak
+	
+	\section{\LaTeX\, Lengths}
+	
+	\subsection{Creating, Setting, and Using New Length}
+	\newlength{\Span}
+	\setlength{\Span}{2cm}
+	\addtolength{\Span}{3cm}
+	
+	%% To print the length value
+	My \textit{Span} is \printlen{\Span}
+	\renewcommand{\defaultsignificant}{3} % digits
+	\renewcommand{\defaultunit}{cm}
+	, which is \printlen{\Span} \\
+	
+	\begin{tikzpicture}
+		\filldraw (0,0) circle (0.3\Span);
+	\end{tikzpicture}
+	
+	\subsection{Setting Length Dimensions to Some Value}
+	\newlength{\RuleWidth}
+	\settowidth{\RuleWidth}{Some Width}
+	
+	\noindent
+ 	\rule{\RuleWidth}{1pt} \\
+ 	Some Width \\[3pt]
+ 	
+ 	In that sense, you have the with of 
+ 	\textcolor{blue!80}{Some Width} equaling to 	
+ 		\printlen{\RuleWidth}.
+ 	\\[10pt]
+ 	
+ 	Similarly, you have \verb|\settoheight|
+ 	
+ 	\newlength{\Powerule} 
+ 	\settoheight{\Powerule}{$2^{4^6}$}
+ 	
+ 	$2^{4^6}$ \rule{5cm}{\Powerule}, and this height is
+ 		$\approx$ \printlen[0][pt]{\Powerule}
+ 		
+ 	\subsection{Using Lengths for Custom Structures}
+ 	\newlength{\TitleWidth} \newlength{\LoweRuleThick}
+ 	
+ 	\newenvironment{Illustrate}[3]{
+ 		\settowidth{\TitleWidth}{\textbf{#1}}
+ 		\rule{\TitleWidth}{#2} \\
+ 		\textbf{#1} \\
+ 		\rule{\TitleWidth}{#2} \\
+ 		%
+ 		\setlength{\LoweRuleThick}{#3}
+ 	}{
+ 		\noindent
+ 		\rule{\linewidth}{\LoweRuleThick}
+ 	}
+ 	
+ 	\begin{Illustrate}{Some Illustration Example}
+ 			{1.5pt}{2pt}
+ 		\kant[1]
+ 	\end{Illustrate}
+\end{document}

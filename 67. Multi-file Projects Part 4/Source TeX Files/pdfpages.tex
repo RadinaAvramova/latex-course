@@ -1,0 +1,37 @@
+\documentclass{article}
+
+\usepackage{pdfpages}
+
+\title{Inserting External PDF Pages}
+\date{}
+
+% \includepdfset{global_options}
+
+\begin{document}
+	\maketitle
+	
+	\includepdf[landscape]{latex.pdf}
+	
+	\includepdf[pages={1, 2, 5}]{doc.pdf}
+	\includepdf[pages=2-6]{doc.pdf}
+	\includepdf[pages={1, 3-7, 9, 10}]{doc.pdf}
+	
+	\includepdf[pages={1,2}, nup=1x2]{doc.pdf}
+	
+	\includepdf[pages={1,2}, nup=2x1, angle=45]{doc.pdf}
+	
+	\includepdf[pages=9]{doc.pdf}
+	
+	\includepdf[pages={1,2}, nup=2x1, frame=true, 							delta=50pt 10pt, scale=0.95]{doc.pdf}
+	%
+	\includepdf[pages={1-last}, doublepages, 
+				offset= 15pt 15pt, delta=5pt 5pt,
+				nup=4x6,frame=true]{doc.pdf}
+	
+	% \includepdfmerge[options]{											1st.pdf, page_spec1,										2nd.pdf, page_spec2	........					}
+	\includepdfmerge[nup=4x1]{latex.pdf, doc.pdf, 1,2, 					latex.pdf}
+	%\includepdfmerge[nup=1x3, landscape]
+%			{doc1.pdf, 1-3,
+%			 doc2.pdf, 3, 5, 9,
+%			 doc3.pdf, 3-5, 7}
+\end{document}

@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\usepackage{kantlipsum}
+\usepackage{MyStyle}
+
+\title{\Large\bf Large Muti-File Article}
+\date{}
+
+\input{tikz.tex}
+
+\begin{document}
+	\maketitle
+	
+	\section{The \texttt{input} Method}
+	\begin{description}
+		\item[Inputting a .tex File]
+			\input{stream.tex}
+		%
+		\item[Inputting a .txt File]
+			\input{text.txt}
+		%
+		\item[Using tikz loaded with tikz.tex]
+			\tikz{\draw (0,0) circle (15pt);}
+	\end{description}
+	
+	\section{The \texttt{include} Method}
+	
+	\include{SubInput/sub_input}
+	
+	\pagebreak
+	
+	\section{Nesting Imported Files}
+	
+	\include{stream.tex}
+	
+	\pagebreak
+	
+	\section{Using Features of MyStyle Package}
+	\RedTeX{\LaTeX}
+	
+\end{document}

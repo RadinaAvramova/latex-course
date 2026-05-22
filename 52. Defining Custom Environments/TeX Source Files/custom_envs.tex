@@ -1,0 +1,147 @@
+\documentclass{article}
+
+\usepackage{kantlipsum, graphicx, xcolor}
+
+\title{\huge\bf User Defined Environments}
+\date{}
+
+\newenvironment{mypar}{
+	\vspace{0.5cm}
+	% Upper Rule
+	\noindent \textcolor{gray}{\rule{\textwidth}{3pt}}
+	\vspace{1cm}
+	
+	{\Huge \textsc{T}}
+	\Large \hspace{-0.7cm}
+}{
+	\vspace{1cm}
+	\noindent \rule{\textwidth}{3pt} % \rule{width}{ht}
+	\vspace{1cm}
+}
+
+\newenvironment{bfCenter}{
+	\begin{center}
+	\bfseries
+	% \kant[1] -- The user input
+}{
+	\end{center}
+}
+
+\newenvironment{CNote}{
+	\begin{center}
+	\begin{minipage}{0.8\textwidth}
+	\centering 
+	\textbf{Note:} \hspace{-0.3cm}
+}{
+	\end{minipage}
+	\end{center}
+}
+
+\newenvironment{items}{
+	\begin{itemize}
+	\bfseries
+	\renewcommand{\labelitemi}{\textcircled{a}}
+	\renewcommand{\labelitemii}{\dag}
+	\renewcommand{\labelitemiii}{\textgreater}
+	\providecommand{\bibtex}{bibtex}
+}{
+	\end{itemize}
+}
+
+\newenvironment{fig}[3]{
+	\begin{figure}[#1]
+	\centering
+	\includegraphics[scale=#2]{#3}
+}{
+	\end{figure}
+}
+
+\newenvironment{hfig}[3][h]{
+	\begin{figure}[#1]
+	\centering
+	\includegraphics[scale=#2]{#3}
+}{
+	\end{figure}
+}
+
+\begin{document}
+	\maketitle
+	
+	\section{New Structure for Paragraphs}
+	\begin{mypar}
+		% The instructions of the {beg_def} starts here
+		ex Typesetting is amazing .... \kant[1]
+		% The instructions to carry out after finishing {end_def}
+	\end{mypar}
+	
+	\section{New Bold Face Centered Environment}
+	\begin{bfCenter}
+		\kant[1]
+	\end{bfCenter}
+	
+	\section{Model for the New Note}
+	\begin{center}
+		\begin{minipage}{0.8\textwidth}
+			\centering 
+			\textbf{Note:} This is a custom note 						environment. You can write your notes here.
+		\end{minipage}
+	\end{center}
+	
+	\subsection{The New Note Environment}
+	\begin{CNote}
+		This is a custom note environment. You can write 		your notes here.
+	\end{CNote}
+	
+	\subsection{New Style itemize}
+	\begin{items}
+		\item Tier One \bibtex
+		\begin{items}
+			\item Tier Two
+			\begin{items}
+				\item Tier Three
+			\end{items}
+		\end{items}
+	\end{items}
+	% Original Typeset Example
+	\begin{itemize}
+	\item Tier One
+		\begin{itemize}
+		\item Tier Two
+			\begin{itemize}
+			\item Tier Three
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	
+	\pagebreak
+	
+	\section{Embedding of Arguments}
+	
+	\subsection{New Figure Insertion Environment}	
+	\begin{fig}{h}{0.5}{hbird.png}
+		\caption{\LaTeX\, Hummingbird}
+	\end{fig}
+	
+	\begin{hfig}[b]{0.5}{hbird.png}
+		\caption{\LaTeX\, Hummingbird Again}
+	\end{hfig}
+	
+	\pagebreak
+	
+	\section{Redefining Environments}
+	
+	\subsection{Dynamic mypar}
+	\renewenvironment{mypar}[3][0.5cm]{
+		\vspace{#1}
+		{\Huge \textsc{#2}}
+		\Large \hspace{#3}
+	}{
+		\vspace{1cm} 
+		\noindent \rule{\textwidth}{3pt} 	
+	}	
+	
+	\begin{mypar}[0.4cm]{L}{-0.4cm}
+		aTeX Typesetting is also amazing.... \kant[1]
+	\end{mypar}
+	
+\end{document}

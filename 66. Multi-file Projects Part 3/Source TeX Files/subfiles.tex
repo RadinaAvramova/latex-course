@@ -1,0 +1,16 @@
+\documentclass{article}
+
+\usepackage{kantlipsum, xcolor, graphicx, tikz}
+\usepackage{subfiles}
+
+\title{The \texttt{subfiles} Package}
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	\subfile{Sections/section}	% Uses \input{}
+	
+	\subfileinclude{Sections/section}
+	
+\end{document}
