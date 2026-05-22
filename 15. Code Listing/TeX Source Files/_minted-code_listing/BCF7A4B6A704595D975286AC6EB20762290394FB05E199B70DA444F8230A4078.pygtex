@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+	\PYG{c+c1}{\PYGZsh{} \underline{Question} No. 8: $F = [F_x, F_y]$}
+	\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+	\PYG{k+kn}{from} \PYG{n+nn}{math} \PYG{k+kn}{import} \PYG{o}{*}
+	\PYG{k+kn}{from} \PYG{n+nn}{numpy} \PYG{k+kn}{import} \PYG{esc}{\colorbox{green}{array}}
+	
+	\PYG{k}{def} \PYG{n+nf}{force\PYGZus{}vec}\PYG{p}{(}\PYG{n}{F1}\PYG{p}{,} \PYG{n}{F2}\PYG{p}{,} \PYG{n}{theta1}\PYG{p}{,} \PYG{n}{theta2}\PYG{p}{)}\PYG{p}{:}
+	    \PYG{n}{Rx} \PYG{o}{=} \PYG{n}{F1} \PYG{o}{*} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{radians}\PYG{p}{(}\PYG{n}{theta1}\PYG{p}{)}\PYG{p}{)} \PYG{o}{+}  \PYG{n}{F2} \PYG{o}{*} \PYG{n}{cos}\PYG{p}{(}\PYG{n}{radians}\PYG{p}{(}\PYG{n}{theta2}\PYG{p}{)}\PYG{p}{)}
+	    \PYG{n}{Ry} \PYG{o}{=} \PYG{n}{F1} \PYG{o}{*} \PYG{n}{cos}\PYG{p}{(}\PYG{n}{radians}\PYG{p}{(}\PYG{n}{theta1}\PYG{p}{)}\PYG{p}{)} \PYG{o}{+}  \PYG{n}{F2} \PYG{o}{*} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{radians}\PYG{p}{(}\PYG{n}{theta2}\PYG{p}{)}\PYG{p}{)}
+	    \PYG{n}{R} \PYG{o}{=} \PYG{p}{[}\PYG{n}{Rx}\PYG{p}{,} \PYG{n}{Ry}\PYG{p}{]}
+	    \PYG{k}{return} \PYG{n}{R}
+	
+	\PYG{c+c1}{\PYGZsh{} Example}
+	\PYG{n}{F1} \PYG{o}{=} \PYG{l+m+mi}{250}
+	\PYG{n}{F2} \PYG{o}{=} \PYG{l+m+mi}{450}
+	\PYG{n}{theta1} \PYG{o}{=} \PYG{l+m+mi}{30}
+	\PYG{n}{theta2} \PYG{o}{=} \PYG{l+m+mi}{35}
+	\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Result:}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{force\PYGZus{}vec}\PYG{p}{(}\PYG{n}{F1}\PYG{p}{,} \PYG{n}{F2}\PYG{p}{,} \PYG{n}{theta1}\PYG{p}{,} \PYG{n}{theta2}\PYG{p}{)}\PYG{p}{)}
+\end{Verbatim}

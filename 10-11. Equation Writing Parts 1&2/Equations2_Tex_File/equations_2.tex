@@ -1,0 +1,264 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+
+\title{Typesetting Mathematics Part 2}
+\date{}
+
+\begin{document}
+	\maketitle
+	\section{Basics:}
+	\noindent
+	Superscripts are Like: $A^2$ \\
+  	Grouped Superscripts: $A^{a+2}$ \\
+  	Subscripts are Like: $B_b$ \\
+  	\section{Nesting:}
+  	Nested Superscripts: $K^{n^{i+2}}$ \\
+  	Nested Subscripts: $M_{m_{l+2}}$
+  	\vspace{2mm} \ \\
+  	Combined Nesting: $C_{m_{l+2}}^{n^{i+2}}$ \\
+  	\vspace{3mm} \ \\
+  	Messy Scripting: $D^{x_i^2}_{j^{2n}_{K, V}}$
+  	
+  	\section{Fractions:}
+  	Simple Inline Fraction: $(N+1)/3$ \\
+  	\vspace{3mm} \ \\
+  	Complicated Fraction: $\frac{a^2+b^2}{a+b}$ \\
+  	
+  	$\frac{\frac{a}{x-y}+\frac{b}{x+y}}{1+\frac{a-b}{a				+b}}$
+  	
+  	\section{Roots:}
+  	Square Root: $\sqrt{16} = 4$ \\
+  	Cube Roots: $\sqrt[3]{8} = 2$ \\
+  	Compare $\sqrt[\mu]{M}$ to 
+  		$\sqrt[\leftroot{-2}\uproot{2}\mu]{M}$ \\
+  	\vspace{3mm} \ \\
+  	$\frac{\sqrt[3]{-k+\sqrt{m^2+n_2}}}{(n+1)^2}$
+  	
+  	\section{Text in Math-Mode:}
+  	$Text not Spaced with:\, \frac{2}{3}$
+  	\textbf{Compared to:} \\
+  	$\mbox{Normal Spaced Upright Text}\, 
+  		A_\mathrm{Text}$
+  		
+  	\section{General Expressions:}
+  	\subsection{Case-based Functions:}
+  	\begin{equation}
+  		F(x) = \begin{cases}
+  					A e^{at}, &\text{if} ~ x \neq 0 \\
+  					0 ~, & \text{Otherwise.}
+  			   \end{cases}
+  	\end{equation}
+  	
+  	\begin{equation}
+		n! = \begin{cases}
+				1	           & \text{if}~ n = 0 \\
+		       (n-1)! \times n & \text{if}~ n > 0
+		     \end{cases} 
+	\end{equation}
+	
+	\subsection{Function Evaluation and Delimiters:}
+	Take a Look at this: $(e^{\frac{1}{2}})$				\textbf{Considering this} 
+	$ \left( e^{\frac{1}{2}} \right) $  \\
+	
+	Evaluation of a Function:
+	\begin{equation}
+		\left. f \left(\frac{e^x}{\sin{x}}\right)							\right|_{x=0} = \inf
+	\end{equation}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsection{Equation-Lining:}
+	Underlining an Expression:
+	\begin{equation}
+		A = P + \left(
+		\frac{2}{n+1} + \underline{\left[2\times m			\right]}
+			\right)
+	\end{equation}
+	Over-lining an Expression:
+	\begin{equation}
+		A = P + \left(
+		\frac{2}{n+1} + \overline{\left[2\times m			\right]}
+			\right)
+	\end{equation}
+	
+	Over and Under-braced Expressions:
+	\begin{equation}
+		A = \overbrace{B+C+D}^{ANote} \times
+			\underbrace{E+F+G}_{DNote}
+	\end{equation}
+	
+	\subsection{Split Equations:}
+	\begin{equation}
+		\begin{split}
+		\lim_{x \rightarrow 0} \frac{\sin x}{x} =
+		\lim_{x \rightarrow 0} \frac{e^x-1}{x} &=\\
+		&\lim_{x \rightarrow 0} \frac{\ln(1+x)}{x} =
+		\lim_{n \rightarrow \infty} \sqrt[n]{n} = 1
+		\end{split}
+	\end{equation}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsection{Side-aligned Equations:}
+	\begin{equation*}
+		\begin{aligned}
+			\sqrt{a+b} \neq \sqrt a+b \\
+			\sqrt{a+b} \neq \sqrt a+b 
+		\end{aligned} \qquad
+		\begin{aligned}
+			\sqrt{a+b} \neq \sqrt a+b \\
+			\sqrt{a+b} \neq \sqrt a+b
+		\end{aligned}
+	\end{equation*}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	\subsection{Stacking and Chemical Equations:}
+	\centering{
+	$\overset{i}{x}$, \quad $\underset{j}{x}$ \\
+	\quad And:
+	$\overset{i}{\underset{j}{X}}$,
+	is the same as:
+	$\underset{j}{\overset{i}{X}}$
+	\vspace{5mm} \ \\
+	
+	$\underset{i=0}{\overset{n}{\sum}}$ \\
+	is the same as:
+	\[\sum^n_{i=0}\]
+	
+	\begin{equation*} 
+		\sum_{
+			\substack{\text{$i$ odd} \\ i \to n}
+		}^{
+			\substack{\text{$j$ even} \\ j \to m}		
+		}
+	\end{equation*}	
+	
+	\begin{equation*}
+		A \stackrel{to}{\to} B
+	\end{equation*}		
+	
+	\begin{equation*}
+		\mathrm{2Na + D_2}
+		\stackrel{\mathrm{heat}}{\rightleftharpoons}
+		\mathrm{2NaD}
+	\end{equation*}
+
+	
+	\begin{equation*}
+		\mathrm{H_2 + D_2}
+		{}_{~\overrightarrow{\mathrm{Put \, Thing  \, 					here}~}}
+		\mathrm{2HD}
+	\end{equation*}
+
+	\begin{equation*}
+		\mathrm{H_2 + D_2}
+		{}^{~\underrightarrow{\mathrm{Put \, Thing  \, 					here}~}}
+		\mathrm{2HD}
+	\end{equation*}
+
+	\begin{equation*}
+		\mathrm{H_2 + D_2}
+			\underset{\text{Ni}}
+			{ {}^{\underrightarrow{~Put\,Content~}} }
+		\mathrm{2HD}
+	\end{equation*}
+	
+	\[
+  	\vec K = \overrightarrow{OR} + \overrightarrow{RB} 
+        = \overleftarrow{BO}
+	\]	
+	}
+	\pagebreak	
+	
+	\subsection{Integration and Differentiation:}
+	Normal Diff: 
+	$ f'(x)= 4x^{(4-1)}+ \frac{d(x^2)}{dx}\cos(x^2)
+ 	  - \frac{d(\ln x)}{dx}e^x
+  	  - \ln x\frac{d(e^x)}{dx} + 0 $ \\	
+	
+	\vspace{2mm} \ \\
+  	Newton Notation:
+  	$\dot x, \ddot x, \dddot x$ \\
+
+	\vspace{2mm} \ \\
+  	Partial Differentiation:
+  	$\frac{\partial^2 x}{\partial t^2} = 0$ \\
+
+	\vspace{2mm} \ \\
+	-----------------------------------------------
+	\vspace{2mm} \ \\
+	
+	For Simple Integrals:
+  	$\int x ~ dx$ \\
+	\vspace{1mm} \ \\
+  	For Definite Integrals:
+  	\[\int^{\infty}_{0} x ~ dx\] \\ 
+
+	\subsection{Vectors and Matrices:}
+  	\begin{equation*}
+		\begin{matrix}
+			A & B \\
+			C & D
+		\end{matrix}
+  	\end{equation*}
+  	\vspace{1mm} \ \\
+  	\begin{equation*}
+		\begin{pmatrix}
+			A & B \\
+			C & D
+		\end{pmatrix}
+  	\end{equation*}
+  	\vspace{1mm} \ \\
+  	\begin{equation*}
+		\begin{bmatrix}
+			A & B \\
+			C & D
+		\end{bmatrix}
+  	\end{equation*}
+  	\vspace{1mm} \ \\
+  	\begin{equation*}
+		\begin{vmatrix}
+			A & B \\
+			C & D
+		\end{vmatrix}
+  	\end{equation*}
+  	\vspace{1mm} \ \\
+  	\begin{equation*}
+		\begin{Vmatrix}
+			A & B \\
+			C & D
+		\end{Vmatrix}
+  	\end{equation*}
+
+	% \setcounter{\MaxMatrixCols}{n}
+	
+	\begin{equation*}
+		\vec{I} = 
+		\left\{ \begin{array}{c}
+			i_1 \\
+			i_2 \\
+			\vdots \\
+			i_n
+		\end{array} \right\}
+	\end{equation*}	
+	
+	\begin{equation*}
+		\left( \def\arraystretch{1.7}
+		\begin{array}{ccccc}
+			A_1 & A_2 & A_3 & \ldots & A_n \\
+			B_1 & B_2 & B_3 & \ldots & B_n \\
+			\hdotsfor{4} & \vdots \\
+			C_1 & C_2 & C_3 & \ldots & C_n 
+		\end{array} \right)
+	\end{equation*}	
+  
+  	\vspace{5mm} \ \\
+	Tiny Inline Matrices are Like : 
+	$\left[ 
+		\begin{smallmatrix}
+			a & b \\
+			c & d
+		\end{smallmatrix}
+	\right]$
+
+
+\end{document}

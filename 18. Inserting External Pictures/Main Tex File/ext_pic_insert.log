@@ -1,0 +1,191 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.3.23)  24 MAR 2022 01:06
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**./ext_pic_insert.tex
+(ext_pic_insert.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2021-11-22>
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count183
+\c@section=\count184
+\c@subsection=\count185
+\c@subsubsection=\count186
+\c@paragraph=\count187
+\c@subparagraph=\count188
+\c@figure=\count189
+\c@table=\count190
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+)
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/cleveref\cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+)
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfigure.sty
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip49
+\subfigcapskip=\skip50
+\subfigcaptopadj=\dimen141
+\subfigbottomskip=\skip51
+\subfigcapmargin=\dimen142
+\subfiglabelskip=\skip52
+\c@subfigure=\count191
+\c@lofdepth=\count192
+\c@subtable=\count193
+\c@lotdepth=\count194
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfigure.cfg
+)
+\subfig@top=\skip53
+\subfig@bottom=\skip54
+)
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2021-12-14 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count195
+\l__pdf_internal_box=\box50
+) (ext_pic_insert.aux)
+\openout1 = `ext_pic_insert.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count196
+\scratchdimen=\dimen143
+\scratchbox=\box51
+\nofMPsegments=\count197
+\nofMParguments=\count198
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count199
+\MPscratchDim=\dimen144
+\MPnumerator=\count266
+\makeMPintoPDFobject=\count267
+\everyMPtoPDFconversion=\toks18
+)
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\Ammar\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+<horus-eye.png, id=1, 513.92pt x 513.92pt>
+File: horus-eye.png Graphic file (type png)
+<use horus-eye.png>
+Package pdftex.def Info: horus-eye.png  used on input line 15.
+(pdftex.def)             Requested size: 56.9055pt x 56.89993pt.
+<New Directory//door.png, id=3, 400.49625pt x 366.61969pt>
+File: New Directory//door.png Graphic file (type png)
+<use New Directory//door.png>
+Package pdftex.def Info: New Directory//door.png  used on input line 28.
+(pdftex.def)             Requested size: 80.09782pt x 73.32263pt.
+<New Directory2//door1.PNG, id=4, 400.49625pt x 366.61969pt>
+File: New Directory2//door1.PNG Graphic file (type png)
+<use New Directory2//door1.PNG>
+Package pdftex.def Info: New Directory2//door1.PNG  used on input line 29.
+(pdftex.def)             Requested size: 80.09782pt x 73.32263pt.
+File: New Directory//door.png Graphic file (type png)
+<use New Directory//door.png>
+Package pdftex.def Info: New Directory//door.png  used on input line 39.
+(pdftex.def)             Requested size: 80.09782pt x 73.32263pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 42.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 42.
+<New Directory2//door1.png, id=5, 400.49625pt x 366.61969pt>
+File: New Directory2//door1.png Graphic file (type png)
+<use New Directory2//door1.png>
+Package pdftex.def Info: New Directory2//door1.png  used on input line 45.
+(pdftex.def)             Requested size: 80.09782pt x 73.32263pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 37--49
+[]$[]$ $[]$ 
+ []
+
+[1
+
+{C:/Users/Ammar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./horus-eye.
+png> <./New Directory//door.png> <./New Directory2//door1.PNG> <./New Directory
+2//door1.png>]
+File: New Directory//door.png Graphic file (type png)
+<use New Directory//door.png>
+Package pdftex.def Info: New Directory//door.png  used on input line 64.
+(pdftex.def)             Requested size: 80.09782pt x 73.32263pt.
+File: New Directory2//door1.png Graphic file (type png)
+<use New Directory2//door1.png>
+Package pdftex.def Info: New Directory2//door1.png  used on input line 68.
+(pdftex.def)             Requested size: 80.09782pt x 73.32263pt.
+File: horus-eye.png Graphic file (type png)
+<use horus-eye.png>
+Package pdftex.def Info: horus-eye.png  used on input line 72.
+(pdftex.def)             Requested size: 102.78217pt x 102.78217pt.
+ [2] (ext_pic_insert.aux) ) 
+Here is how much of TeX's memory you used:
+ 3239 strings out of 478659
+ 64286 string characters out of 2845920
+ 378239 words of memory out of 3000000
+ 21373 multiletter control sequences out of 15000+600000
+ 404939 words of font info for 32 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 55i,9n,62p,214b,277s stack positions out of 5000i,500n,10000p,200000b,80000s
+<C:/Users/Ammar/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Ammar/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Ammar/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+Output written on ext_pic_insert.pdf (2 pages, 953809 bytes).
+PDF statistics:
+ 33 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+

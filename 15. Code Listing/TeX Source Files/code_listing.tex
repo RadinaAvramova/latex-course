@@ -1,0 +1,172 @@
+\documentclass{article}
+
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{minted}
+
+\definecolor{pythonback}{rgb}{0.95,0.95,0.92}
+\definecolor{pythoncomment}{rgb}{0,0.6,0}
+\definecolor{numbercolor}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{PythonCode}{
+	backgroundcolor = \color{pythonback},
+	commentstyle = \color{pythoncomment},
+	numberstyle = \color{numbercolor},
+	stringstyle = \color{stringcolor},
+	keywordstyle = \color{blue},
+	basicstyle = \ttfamily\small,
+	breaklines = true,
+	captionpos = b,
+	numbers = left,
+	numbersep = 20pt,
+	frame = single,
+	framerule = 1pt,
+	tabsize = 2,
+	showstringspaces=false,
+	escapechar = \%,
+	framesep = \baselineskip
+}
+
+\usemintedstyle[python]{igor}
+
+% \surroundwithmdframed{minted}
+% \tcbuselibrary{minted}, then use tcblisting env.
+
+\setminted[python]{
+   linenos,
+   mathescape,
+   baselinestretch=1.5,
+   bgcolor=gray!10,
+   breaklines,
+   escapeinside=||,
+   frame=lines,
+   framerule=1.5pt,
+   framesep=10pt,
+   highlightlines={7,8},
+   highlightcolor=cyan!10,
+   tabsize=4,
+   texcl=true
+}
+
+\begin{document}
+	{\noindent \Huge \textbf{Code Listing}}
+	
+	\vspace{2cm}
+	
+	\section{The Basic Verbatim Environment}
+	\begin{verbatim}
+		for i in range(len(X)):
+   			# iterate through columns
+   			for j in range(len(X[0])):
+       			result[j][i] = X[i][j]
+	\end{verbatim}
+	
+	This is an inline example of \verb|\verbatim| in \LaTeX.
+	
+	\begin{Verbatim}[frame=single,framerule=1mm,
+					 framesep=5mm,
+					 fillcolor=\color{gray!50}]
+	An enhanced verbatim text using fancyvrb package.
+	\end{Verbatim}
+	
+	\vspace{1cm}
+	
+	\section{The listings Package}
+	\subsection{List Inline}
+	This is an inline Example of listings 						package \fbox{\lstinline&for i in 						range(len(X)):&} -- and that was the code.
+	
+	\subsection{Normal Blocks of Code: lstlisting}
+	\begin{lstlisting}
+		def my_function():
+  			print("Hello from a function")
+	\end{lstlisting}
+	
+	\subsection{Code From Source File}
+	\lstinputlisting{../Listed-Code-Source-Files/source_file.java}
+	
+	\subsection{Package Control Options}
+	\begin{lstlisting}[style=PythonCode,
+					   name=PyBlock,
+					   language=Python,
+					   frame = ltr,
+					   caption=Geometric Series Sum.]
+	# Question No. 1
+	def sum_geometric_series(a,r,n):
+    	term = 0
+    	# Start Numbering at One for Right Exponent
+    	for i in range(1, n+1): 
+        	term += a * pow(r, i) # Accumulating
+    	series_sum = a + term
+    	return series_sum
+	
+	# Example
+	print("The Result is:",sum_geometric_series(2,3,4))
+	%\phantom{-----------}%
+	\end{lstlisting}
+	
+	\bigskip
+	\lipsum[1]
+	\bigskip
+	
+	% Emphsizing a function name
+	\lstset{emph = approximate_e, 									emphstyle = \color{brown}}
+	\begin{lstlisting}[style=PythonCode,
+					   name=PyBlock,
+					   language=Python,
+					   frame = lbr,
+					 caption=Approximate Euler Number.]
+	%\phantom{-----------}%
+	# Question No. 2
+	def approximate_e(n):
+   		e = pow((1+1/2), n )
+    	return e
+	
+	# Example
+	print(approximate_e(2))
+	\end{lstlisting}
+	
+	\pagebreak
+	
+	\subsection{Listing Specific Range of Lines}			\lstset{showlines=true}
+	\lstinputlisting[language=Python,
+					 style=PythonCode,
+					 linerange={13-18}]
+					 {../Listed-Code-Source-Files/input_range-example.py}
+	%%%%% The sixth empty line: 
+		% By default the package ignores any blank lines in the code but the option "showlines" when set to true allows for printing.
+					 
+	
+	\section{The minted Package}
+	\begin{minted}{python}
+	# \underline{Question} No. 8: $F = [F_x, F_y]$
+	import numpy as np
+	from math import *
+	from numpy import |\colorbox{green}{array}|
+	
+	def force_vec(F1, F2, theta1, theta2):
+	    Rx = F1 * sin(radians(theta1)) +  F2 * cos(radians(theta2))
+	    Ry = F1 * cos(radians(theta1)) +  F2 * sin(radians(theta2))
+	    R = [Rx, Ry]
+	    return R
+	
+	# Example
+	F1 = 250 
+	F2 = 450
+	theta1 = 30
+	theta2 = 35
+	print("Result:", force_vec(F1, F2, theta1, theta2))
+	\end{minted}
+	
+	% \inputminted[firstline=, lastline=]{lang}{PATH}
+	
+	\bigskip
+	%% However: \mint{lang}|CODE| "OneLine"
+	\mint{python}|import library|
+	
+	%% For Inline: \mintinline{lang}{CODE}
+	This is an Inline Code \fbox{\mintinline{python}{Print("Hello World !!")}} Offered by minted Package.
+	
+\end{document}

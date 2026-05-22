@@ -1,0 +1,113 @@
+\documentclass{article}
+
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage[thmset=rich,
+			sepcounters=true,
+			proofenv=true,
+			qedsymbolblackaquare=true,
+			prooftitleitbf=true]{phfthm}
+\usepackage{mdframed}
+
+\phfMakeTheorem[defstar=true,
+				thmstyle=plain]{answer}{Answer}
+
+\newmdenv[subtitlebelowline=true,
+		  subtitleaboveline=true,
+		  subtitlebackgroundcolor=green,
+		  backgroundcolor=blue,
+		  frametitle={Custom mdframed Environment},
+		  frametitlerule=true,
+		  frametitlebackgroundcolor=yellow]
+		 {mdfCustomed}
+
+% New mdframed Theorem Environment
+\mdfdefinestyle{mdfThmStyle}{linecolor=blue,
+							 linewidth=2pt,
+							 frametitlerule=true,
+				    frametitlebackgroundcolor=gray!15}
+\mdtheorem[style=mdfThmStyle]{mdfthm}{mdfThm} 
+
+\begin{document}
+	{ \centering
+	  \Huge
+	  \textbf{Theorems and Proofs Part II}
+	}
+	
+	\vspace{2cm}
+	
+	\section{The phfthm Package}
+	\begin{theorem}
+		The Content to be Put here !!
+	\end{theorem}
+	\begin{question}
+		The Content to be Put here !!
+	\end{question}
+	\begin{corollary*}
+		The Content to be Put here !!
+	\end{corollary*} 
+	
+	% A New User-defined Theorem-Like Environment
+	\begin{thmheading}{Theorem-Like}
+		\begin{equation}
+			F(x) = 2x + y
+		\end{equation}
+	\end{thmheading}
+	
+	% A Typical Functioning User-defined Environment.
+	\begin{answer}
+		This is an Example of a Typical User-defined 			Theorem-Like Environment using phfthm Package.
+	\end{answer}
+	
+	\begin{proof}
+		This is a Proof Through the phfthm Package !!
+	\end{proof}
+	
+	\pagebreak
+	
+	\section{The mdframed Package}
+	\mdfdefinestyle{mymdfStyle}{linecolor=blue,
+								linewidth=2pt}
+								
+	\begin{mdframed}[style=mymdfStyle]
+		\lipsum[1]
+	\end{mdframed}
+	
+	{
+	\mdfapptodefinestyle{mymdfStyle}											{
+						innertopmargin=1em,
+						innerbottommargin=1em,
+						innerleftmargin=1em,
+						innerrightmargin=1em,
+						fontcolor=cyan,
+						backgroundcolor=gray!25,
+						topline=false,
+						bottomline=false,
+						leftline=false}
+						
+	\begin{mdframed}[style=mymdfStyle,
+					 frametitle={Lorem Ipsum Text:},
+					 frametitlerule=true,
+					 frametitlerulewidth=2pt,
+					 frametitleaboveskip=0.4cm,
+					 frametitlebelowskip=0.4cm]
+		\lipsum[1]
+	\end{mdframed}	
+	}
+	
+	\begin{mdframed}[style=mymdfStyle]
+		\lipsum[1-2]
+	\end{mdframed}
+	
+	\begin{mdfCustomed}
+		The Content \ldots
+		\mdfsubtitle{The Subtitle}
+		The Content \ldots
+	\end{mdfCustomed}
+	
+	% A New User-defined Theorem Env. through mdframed.
+	\begin{mdfthm*}[New Definition]
+		Let $H$ be a subgroup of a group~$G$. A\emph{left coset} of $H$ in $G$ is a subset of $G$ that is of the form $xH$, where $x \in G$ and $xH = \{ xh : h \in H \}$. Similarly a \emph{right coset} of $H$ in $G$ is a subset of $G$ that is of the form $Hx$, where $Hx = \{ hx : h \in H \}$.	
+	\end{mdfthm*}
+	
+\end{document}

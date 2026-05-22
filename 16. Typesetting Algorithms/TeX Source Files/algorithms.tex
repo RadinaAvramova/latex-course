@@ -1,0 +1,158 @@
+\documentclass{article}
+
+\usepackage{algorithmic}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[algo2e, vlined,
+			linesnumbered, ruled,
+			algosection, nofillcomment]{algorithm2e}
+\usepackage{setspace}
+
+\title{\Huge \textbf{Typesetting Algorithms}}
+\date{}
+
+\sectionfont{\color{blue}}
+
+\algsetup{indent = 2em,
+		  linenosize = \large,
+		  linenodelimiter = .
+}
+
+\renewcommand{\algorithmicrequire}{
+	\color{red}{\textbf{Require:}}
+}
+
+\renewcommand{\algorithmicensure}{
+	\color{blue}{\textbf{Ensure:}}
+}
+
+\SetKwInput{KwRequired}{Required}
+\SetKwInput{KwExpected}{Expected}
+\SetNlSty{texttt}{[}{]:}
+
+\setstretch{1.1}
+
+\begin{document}
+	\maketitle
+	
+	\section{The algorithmic Package}
+	\subsection{Conditional Statements and Looping}
+	
+	\begin{algorithmic}[1]
+		\IF{Condition}
+			\STATE Carry out some operations.
+		\ELSIF{Another Condition}		
+			\STATE Carry out another operation.
+		\ELSE
+			\STATE Do basic operations.
+		\ENDIF
+		% For Loop
+		\FOR{$i=0$ \TO $10$}
+			\STATE Carry out some operations.
+		\ENDFOR
+		% While Loop
+		\WHILE{Some condition holds}
+			\STATE Carry out some operations.
+		\ENDWHILE
+	\end{algorithmic}
+	
+	\bigskip
+	\subsection{Conditions and Logical Operators}
+	
+	\begin{algorithmic}[1]
+		% Pre-condition
+		\REQUIRE $x \neq 0$ and $n \geq 0$
+		% Post-condition
+		\ENSURE $x \neq 0$ and $n \geq 0$
+		% Logical Operators
+		\IF{(value1 \AND value2) are equal}
+			\STATE Do something 
+		\ELSIF{\NOT(value1 $=$ value2)}
+			\STATE Do something else.
+		\ELSE[you can put a comment here]
+			\RETURN \TRUE
+		\ENDIF
+	\end{algorithmic}
+	
+	\pagebreak
+	\section{The algorithm2e Package}
+	% Defining and Styling Functions
+	\SetFuncSty{textbf}
+	\SetKwFunction{intRest}{\color{blue}{IntervalRest}}
+	\SetKwFunction{test}{\emph{TestFunc}}
+	% Caption Styling
+	\SetAlCapSty{textit}
+	\SetAlCapNameSty{texttt}
+	\SetAlCapFnt{\large}
+	\SetAlCapNameFnt{\Large} 
+	% Margins and Spaces
+	\IncMargin{10pt}
+	\SetAlgoInsideSkip{medskip}
+	\setlength{\interspacetitleruled}{4pt}
+	% Defining New Comments
+	\SetKwComment{MatCmnt}{\% }{} 
+	\begin{algorithm2e}[H]
+		\DontPrintSemicolon
+		%% Algorithm Head
+		\KwRequired{This is a required stuff.}
+		\KwExpected{This is the expected output range.}
+		\KwData{$G=(X,U)$ such that $G^{tc}$ is an 					order.}
+		\KwResult{$G'=(X,V)$ with $V \subseteq U$ such 				that $G'^{tc}$ is an interval order.}
+		%% Algorithm Body
+		\intRest{parameters} \\
+		\test{parameters} 
+		\MatCmnt*[h]{This is a Matlab Style Comment}\\
+		$ V \longleftarrow U $ \;
+		$ S \longleftarrow \emptyset $ \\
+		% The First For Loop
+		\For{$x \in X$}{
+			$ NbSuccIns(x) \longleftarrow 0 $ \\
+			$ NbPredInMin(x) \longleftarrow 0 $ \\
+			$ NbPredNotInMin(x) \longleftarrow
+				|ImPred(x)| $ 		
+		}
+		% The Second For Loop
+		\For(\tcc*[h]{This is a C comment})
+			{$x \in X$}{
+			\If{
+				$NbPredInMin(x)=0$ {\bf and}
+				$NbPredNotInMin(x)=0$
+			   }
+			   {$AppendToMin(x)$}	
+		}
+		% The While Section
+		\While{$S \neq \emptyset$}{
+			% First Part
+			remove $x$ from the list of $T$ of maximal 					index. \\		
+			% The Second Part: The Nested While Loop
+			\While{$ |S \cap ImSucc(x)| \neq |S| $}{
+				 \For{$ y \in S-ImSucc(x) $}{
+					\{ remove from $V$ all the				 					arcs $zy$: \} \\
+					% The Nested For Loop
+					\For{$z \in ImPred(y) \cap Min$}{
+						% NFL Line No.1
+						remove the arc $zy$ from $V$ \\
+						% NFL Line No.2
+						$NbSuccIns(z) \longleftarrow
+							NbSuccIns(z)-1$ \\
+						% NFL Line No.3
+						move $z$ in $T$ to the list 							preceding its present list \\
+						% NFL Line No.4
+						\{i.e. If $z \in T[k]$,
+							move $z$ from $T[k]$ to
+							$T[k-1]$\}
+						}
+					% The Parent Loop Four Lines
+					$NbPredInMin(y) \longleftarrow 0$\\
+					$NbPredNotInMin(y) \longleftarrow 							0$ \\
+					$S \longleftarrow S - \{y\}$\\
+					$AppendToMin(y)$ \\
+				 	}		  
+				}
+			% The Third Part
+			$RemoveFromMin(x)$
+		}		
+		
+		\caption{Interval Restriction}
+	\end{algorithm2e}
+\end{document}

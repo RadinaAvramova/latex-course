@@ -1,0 +1,1 @@
+\Diagram A &\rTo ^{a} &B\\ \dTo _{b} & &\dTo _{c}\\ C &\rTo ^{d} &D\\ \endDiagram 

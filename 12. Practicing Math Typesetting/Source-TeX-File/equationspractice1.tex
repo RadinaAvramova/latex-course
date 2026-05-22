@@ -1,0 +1,145 @@
+\documentclass{article}
+
+\usepackage{amsmath,amscd}
+\usepackage{xypic}
+\usepackage{hyperref}
+\usepackage{stackengine}
+\usepackage{bigdelim}
+\usepackage{cancel}
+\usepackage{delarray}
+\usepackage{cases} 
+\usepackage{dotseqn}
+
+\begin{document}
+	\[ \minCDarrowwidth2cm
+	\begin{CD}
+		E   @<<< A 	@>Long Element>> B 	  \\
+		@.	@VhVV     @AAgA   \\
+		@.	D	@<<k< 	C  	  \\
+	\end{CD} 
+	\]
+		
+	\xymatrix{ 
+		E \ar[dr] & A \ar[l] \ar[r] \ar[d] & B \\ 	
+				  & D & C \ar[u] \ar[l]
+	}
+	
+	\xymatrix{
+		A \ar[r]^f \ar[dr]_{f;g} & B \ar[d]^g 							\ar[dr]^{g;h} \\
+			& C \ar[r]_h & D
+	}
+	
+	\bigskip
+
+	\bordermatrix{\text{corner}&c_1&c_2&\ldots &c_n\cr
+                r_1&a_{11} &  0  & \ldots & a_{1n}\cr
+                r_2& 0  &  a_{22} & \ldots & a_{2n}\cr
+                r_3& \vdots & \vdots & \ddots & \vdots\cr
+                r_4& 0  &   0       &\ldots & a_{nn}}
+                
+    \bigskip 
+                
+    \[
+		\begin{matrix}
+           3x_1 & -2x_2 &  +x_3 &  -x_4 & = & 7\\
+           -x_1 &       & -5x_3 & +2x_4 & = & 2\\
+                &   x_2 & +2x_3 &       & = & 0\\
+           2x_1 & +3x_2 &       & -5x_4 & = & -1
+        \end{matrix}   
+    \]
+    
+    \[
+		\left( \begin{array}{cccc|c}
+             3 & -2 &  1 & -1 &  7\\
+            -1 &  0 & -5 &  2 &  2\\
+             0 &  1 &  2 &  0 &  0\\ 
+            -2 &  3 &  0 & -5 & -1
+          \end{array} \right)    
+    \]
+	
+	\[
+		\begin{bmatrix}
+		    3  & -2 &  1 & -1 & \bigm| & 7  \\
+		    -1 &  0 & -5 &  2 & \bigm| & 2  \\
+		    0  &  1 &  2 &  0 & \bigm| & 0  \\ 
+		    -2 &  3 &  0 & -5 & \bigm| & -1
+		\end{bmatrix}
+	\]
+	
+	\pagebreak
+	
+	\[	
+		\setstackgap{L}{\baselineskip}
+		\sigma(X) = \frac{p \left(x \bigm| H_1 \right)}							{p \left(x \bigm| H_0 \right)}
+		\Vectorstack{H_1 > < H_0}
+		\theta	
+	\]
+	
+	\[
+		\begin{pmatrix}
+			& x_{11} & x_{12} & x_{13} & x_{14} &
+				\rdelim\}{2}{2cm}[Right Label] \\
+			\ldelim[{3}{2cm}[Left Label] 
+				& x_{21} & x_{22} & x_{23} & x_{24} \\
+			& x_{31} & x_{32} & x_{33} & x_{34} \\
+			& x_{41} & x_{42} & x_{43} & x_{44} 
+		\end{pmatrix}			
+	\]
+	
+	\[\cancel{2x + 4y}\]
+	\[\bcancel{2x + 4y}\]	
+	\[\xcancel{2x + 4y}\]
+	
+	\[
+		f(x) = \frac{(x^2+1)\cancel{(x-1)}}
+					{\cancel{(x-1)}\cancelto{1}{(x+1)}}	
+	\]	
+	\bigskip
+	\[
+		\left(
+		\begin{array}{ccc}
+		 
+		\begin{array}{cc}
+		a_{11} & a_{12} \\ a_{21} & a_{22}  
+		\end{array} & 0 & 0 \\
+		
+		0 & \begin{array}{ccc}
+		b_{11} & b_{12} & b_{13}\\ b_{21} & b_{22} & 					b_{23}\\ b_{31} & b_{32} & b_{33}
+		\end{array} & 0 \\
+		
+		0 & 0 & \begin{array}{cc}
+		c_{11} & c_{12} \\
+		c_{21} & c_{22}  
+		\end{array} 
+		
+		\end{array}
+		\right)
+	\]
+	
+	\bigskip
+	
+	\begin{equation*}
+		\binom{x_R}{y_R} = \underbrace{r							\vphantom{\binom{A}{B}}}_{\text{Scaling}}
+		\hspace{-7pt} \cdot
+		\underbrace{
+		\begin{pmatrix}
+		\sin{\gamma} & -\cos{\gamma} \\ 
+		\cos{\gamma} & \sin{\gamma}
+		\end{pmatrix}
+		}_{\text{Rotation}}\binom{x_K}{y_K} 
+		+ \hspace{-7pt} \underbrace{\binom{t_x}{t_y}}				_{\text{Translation}}
+	\end{equation*}
+	
+	\begin{subnumcases}{|x|=}
+		x,  & for $x \geq 0$ \\
+		-x, & for $x < 0$ 
+	\end{subnumcases}
+	
+	\begin{equation}
+		F(x) = \int f(x)\,\mathrm{d}x + C 
+	\end{equation}
+	\begin{equation}
+		F(x) = \int_1^\infty f(x)\,\mathrm{d}x=1 
+	\end{equation}
+	
+\end{document}

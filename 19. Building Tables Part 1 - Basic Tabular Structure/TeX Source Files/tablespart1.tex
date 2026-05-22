@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage{kantlipsum}
+\usepackage{cleveref}
+\usepackage{multirow}
+
+\title{\Huge Building Tables Part I}
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	\section{Using the tabular Environment}
+	\kant[1] 
+	\medskip
+	Search in \Cref{tbl:qptbl} to get the price of the 
+		target item.
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|l|c|c|}
+			\hline
+			Item No. & Quantity & 
+			This is a very long text that will exceed
+			the textwidth of the page and it will 
+			cut out and the end of the document 
+			because that's the standard behavior of
+			latex when dismissing the column width
+			setup to sufficiently accommodate for
+			very large entries like this one.\\
+			\hline
+			1		 & 2		& 3.4 	\\
+			\hline
+			2		 & 1		& 5.2	\\
+			\hline 
+		\end{tabular}
+		\caption{Quantity-Price Table}
+		\label{tbl:qptbl}
+	\end{table}
+	
+	\section{Merging rows and columns through multirow 				package}
+	\begin{tabular}{|l|*{4}{c|}}
+		\hline
+		\multirow{2}{*}{Item Name} &
+			\multicolumn{4}{c|}{Price/Quantity} \\
+		\cline{2-5}
+		& 1 & 2 & 3 & 4 \\ 
+		\hline
+		Screw & 10 & 15 & 25 & \multirow{2}{*}{27} \\
+		\cline{1-4}
+		Bolt & \multicolumn{2}{c|}{20} & 25 &  \\
+		\hline %%%%%%%%%% \beg center
+	\end{tabular}
+\end{document}

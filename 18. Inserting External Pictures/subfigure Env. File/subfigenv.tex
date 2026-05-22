@@ -1,0 +1,49 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{wrapfig2}
+\usepackage[justification=raggedright]{caption}
+\usepackage{kantlipsum}
+
+\renewcommand{\thesubfigure}{\arabic{subfigure}}
+
+%% Spaces of the wrapfigure 
+% Horizontal Shift 
+\setlength{\columnsep}{20pt}
+% Vertical Shift
+\setlength{\intextsep}{10pt}
+
+\begin{document}
+	\listoffigures
+
+	\section{The subfigure Environment}
+	
+	\begin{figure}[h]
+		\begin{subfigure}{0.5\textwidth}
+			\centering
+			\includegraphics[scale=0.3]{door.png}
+			\caption{First Door}
+			\label{subfig:fstdr}
+		\end{subfigure} %%%%%%%%%%%%%%%%
+		\hfill	% No blank lines here !!
+		\begin{subfigure}{0.5\textwidth}
+			\centering
+		    \includegraphics[scale=0.3]{door1.png}
+			\caption{Second Door}
+			\label{subfig:secdr}
+		\end{subfigure}
+		\caption[Grouping using the subfigure Env.]
+		{This is a long text that supposedly 
+		describes the group of figures we have here in 				this figure environment.}
+		\label{subfigs:subg2}
+	\end{figure}
+	
+	\section{Figure Wrapping}
+	\begin{wrapfigure}[15]{r}[100pt]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{door.png}
+		\caption{Wrapped Door Figure }
+	\end{wrapfigure}
+	\kant[1]
+\end{document}

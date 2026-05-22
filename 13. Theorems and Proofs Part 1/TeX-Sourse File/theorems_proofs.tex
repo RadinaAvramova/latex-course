@@ -1,0 +1,143 @@
+\documentclass{article}
+
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{lipsum}
+\usepackage{amsmath}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{result}{Result}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{plain}{Plain}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newtheoremstyle{myStyle}
+				{1cm}{}
+				{\itshape}{}
+				{\bfseries}{:}
+				{\newline}{}
+\theoremstyle{myStyle}
+\newtheorem{custom}{Custom}
+
+\declaretheorem[shaded={bgcolor=SkyBlue},
+				name=ShadedThm]{shTheorem}
+				
+\declaretheorem[shaded={rulecolor=YellowGreen,
+						rulewidth=2pt,
+						bgcolor=white}]{ruledThm}
+						
+%\declaretheorem[thmbox=L]{LBoxThm}
+%\declaretheorem[thmbox=M]{MBoxThm}
+%\declaretheorem[thmbox=S]{SBoxThm}
+
+\renewcommand\qedsymbol{\fbox{Ended}}
+
+\begin{document}
+	{
+		\noindent
+		\Huge
+		\textbf{Theorems and Proofs}	
+	}
+
+	\vspace{1cm}
+	
+	\section{First Section}
+	\begin{theorem}[TheoremName]
+		Put the content of the theorem here !!
+	\end{theorem}
+	
+	\section{Second Section}	
+	\begin{theorem}
+		Put the content of the theorem here !!
+	\end{theorem}
+	\begin{theorem}
+		Put the content of the theorem here !!
+	\end{theorem}
+	
+	\begin{result}
+		The new content of the result env. !!
+	\end{result}
+	
+	\begin{lemma}
+		Put the content of the theorem-like env. here.
+	\end{lemma}
+	
+	\begin{theorem}
+		Put the content of the theorem here !!
+	\end{theorem}
+	
+	\begin{plain}
+		This is an unnumbered theorem-like env.
+	\end{plain}
+	
+	\section{Theorem Styles}
+	\begin{definition}
+		Put your definition here !!
+	\end{definition}
+	\begin{remark}
+		Put your remark here !!
+	\end{remark}
+	
+	\section{Custom Theorem Style}
+	\begin{custom}
+		Custom Theorem Style Environment.
+	\end{custom}
+	\begin{custom}
+		Custom Theorem Style Environment.
+	\end{custom}
+	
+	\pagebreak
+	
+	\section{thmtools Package}
+	\subsection{shadethm Package Support}
+	\begin{shTheorem}
+		For every prime $p$, there then is a prime 
+			$p'>p$. In Particular, there are infinitely 			man primes.		
+	\end{shTheorem}
+	\begin{ruledThm}
+	For every prime $p$, there then is a prime 
+			$p'>p$. In Particular, there are infinitely 			man primes.
+	\end{ruledThm}
+	
+	\vspace{2cm}
+	
+%	\subsection{thmbox Package Support}
+%	\begin{LBoxThm}
+%		For every prime $p$, there then is a prime 
+%			$p'>p$. In Particular, there are infinitely 			man primes.
+%	\end{LBoxThm}
+%	\begin{MBoxThm}
+%		For every prime $p$, there then is a prime 
+%			$p'>p$. In Particular, there are infinitely 			man primes.
+%	\end{MBoxThm}
+%	\begin{SBoxThm}
+%		For every prime $p$, there then is a prime 
+%			$p'>p$. In Particular, there are infinitely 			man primes.
+%	\end{SBoxThm}
+	
+	\pagebreak
+	
+	\section{Proofs}
+	The Proof Environment is Like:
+	\begin{proof}[myNewProof]
+		Put the content of the proof here !!
+		\renewcommand{\qedsymbol}{}
+	\end{proof}
+	
+	\lipsum[1] \qed
+	
+	\begin{proof}
+		\renewcommand\qedsymbol{$\clubsuit$}
+		\begin{equation*}
+			F(x) = 2x + y
+			\qedhere
+		\end{equation*}
+	\end{proof}
+	
+\end{document}

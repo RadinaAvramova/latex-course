@@ -1,0 +1,77 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{cleveref}
+\usepackage{subfigure}
+
+%\setkeys{Gin}{width=0.3\textwidth}
+\graphicspath{{New Directory/}{New Directory2/}}
+\DeclareGraphicsExtensions{png,jpeg}
+
+\begin{document}
+	\setlength{\fboxrule}{5pt}
+	\setlength{\fboxsep}{10pt}
+	
+	\fbox{\includegraphics[width=2cm]{horus-eye.png}}
+	
+%	\fbox{\includegraphics{horus-eye.png}}
+
+	\vspace{2cm}
+	
+	Look at \Cref{fig:doors} for better understanding.
+	
+	%%% First Grouping Method %%%
+	\section{First Combining Method: Multiple Include
+		Commands}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.2]{door.png} 					\hspace{1cm}
+		\includegraphics[scale=0.2]{door1.PNG}
+		\caption{Two Door Images Counted as One Figure}
+		\label{fig:doors}
+	\end{figure}
+	
+	%%% Second Grouping Method %%%
+	\section{Second Combining Method: using minipage}
+	\begin{figure}[h]
+		\begin{minipage}{0.5\linewidth}
+			\centering	
+			\includegraphics[scale=0.2]{door.png}
+			\caption{First Door Picture}
+			\label{fig:dr}
+		\end{minipage}
+		\begin{minipage}{0.5\linewidth}
+			\centering	
+			\includegraphics[scale=0.2]{door1.png}
+			\caption{Second Door Picture}
+			\label{fig:dr1}
+		\end{minipage}
+	\end{figure}
+	
+	\pagebreak	
+	
+	%%% Third Grouping Method %%% 
+	\section{Third Combining  Method: using Subfigures}
+	Refer to \Crefrange{subfig:door}{subfig:heye}
+		in \Cref{subfigs:subg1}
+		
+	\subsection{The subfigure Command}
+	\begin{figure}[h]
+		\centering 
+		\subfigure[Door No. 1]{
+			\includegraphics[scale=0.2]{door.png}
+			\label{subfig:door}		
+		}
+		\subfigure[Door No. 2]{
+			\includegraphics[scale=0.2]{door1.png}
+			\label{subfig:door1}		
+		} \\ 	%% Line Break
+		\subfigure[Horus Eye]{
+			\includegraphics[scale=0.2]{horus-eye.png}
+			\label{subfig:heye}		
+		}
+		\caption{Grouping with the subfigure Command.}
+		\label{subfigs:subg1}
+	\end{figure}
+	
+\end{document}
