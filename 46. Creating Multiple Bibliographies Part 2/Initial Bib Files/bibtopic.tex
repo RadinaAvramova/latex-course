@@ -1,0 +1,29 @@
+\documentclass{article}
+
+\usepackage[printheadings]{bibtopic} 
+
+\title{\bf Separating Bibliographies by Topic}
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	{\large\bf The standard \verb|\bibliography{}| command doesn't work with the \textit{bibtopic} package, however, the \verb|\bibliographystyle{}| works, but know that the optional argument of the \textit{btSect} environment overrides that.}	
+	
+	\section{Citing Some Books}
+	Refer to Donald Knuth's books \cite{Knuth-CT}, and
+		\cite{Knuth-ACP} to learn more.
+	\begin{btSect}[plain]{books}
+%		\section*{Knuth's Books}
+		\btPrintCited
+	\end{btSect}
+	
+	\section{Citing Some Articles}
+	Refer to D. Knuth's articles \cite{Knuth-TB}, and
+	\cite{Knuth-LP} to learn more.
+	\begin{btSect}[alpha]{articles}
+%		\section*{Knuth's Articles}
+		\btPrintCited
+	\end{btSect}
+	
+\end{document}

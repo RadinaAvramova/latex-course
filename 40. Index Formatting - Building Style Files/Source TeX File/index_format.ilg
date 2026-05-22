@@ -1,0 +1,12 @@
+This is makeindex, version 2.16 [MiKTeX 23.10].
+Scanning style file ./tikz_index_style.ist.
+** Input style error (file = ./tikz_index_style.ist, line = 4):
+   -- Unknown specifier \\end{tikzpicture}\n\n.
+** Input style error (file = ./tikz_index_style.ist, line = 6):
+   -- Unknown specifier \\end{tikzpicture}.
+.........done (10 attributes redefined, 2 ignored).
+Scanning input file index_format.idx....done (8 entries accepted, 0 rejected).
+Sorting entries....done (30 comparisons).
+Generating output file index_format.ind....done (17 lines written, 0 warnings).
+Output written in index_format.ind.
+Transcript written in index_format.ilg.

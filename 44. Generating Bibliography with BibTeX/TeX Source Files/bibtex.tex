@@ -1,0 +1,22 @@
+\documentclass{article}
+
+\usepackage{natbib}
+
+\title{\bf Bibliography with BIB\TeX ~Program}
+\date{}
+
+%% 1. Choosing Style
+\bibliographystyle{abbrvnat} 
+
+\begin{document}
+	\maketitle
+	If you're wondering \textsc{Bib}\TeX \\
+	
+	%% 2. Citing Refs
+	See \citet{Knuth-TB}	
+	
+	%% 3. Using Bib Database
+	\bibliography{bibbase} % without extention
+	\nocite{*}	
+	
+\end{document}

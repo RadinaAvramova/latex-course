@@ -1,0 +1,428 @@
+\documentclass{article}
+
+\usepackage{calculator, calculus}
+\usepackage{amsmath, ifthen, xcolor, titling}
+
+\title{\bf Arithmetic Operations and Scientific 				Calculations}
+\date{}
+
+\begin{filecontents}{other_ops.tex}
+\begin{itemize}
+	\item \verb|\SUBTRACTfunction{\f1}{\f2}{\newSubFun}|
+	$F(t)= f1 - f2$
+	\item \verb|\PRODUCTfunction{\f1}{\f2}{\newProdFun}|
+	$F(t)= f1 * f2$
+	\item \verb|\SCALEfunction{num}{\func}{\ScFunc}|
+	$F(t) = num * func$
+\end{itemize}
+\end{filecontents}
+
+\setlength\droptitle{-3cm}
+
+\begin{document}
+	\maketitle
+	
+	\section{The \texttt{calculator} Package}
+	
+	\subsection{Basic Arithmetic}
+	\begin{description}
+		\item[Storing Numbers]
+			We copy 0.5 to \verb|\half| 
+			\COPY{0.5}{\half} 
+			So, \half \\
+			\COPY{\half}{\newhalf} New half is \newhalf
+		%%
+		\item[Addition] 
+			Add (8, 7) to get 
+			\ADD{8}{7}{\added} \added
+		%%
+		\item[Subtraction] 
+			Sub (8 from 10) to get
+			\SUBTRACT{10}{8}{\subt} \subt  
+		%%
+		\item[Multiplication] 
+			Multiply (7.5, 6.3)	
+			to get \MULTIPLY{7.5}{6.3}{\mult} \mult
+		%%
+		\item[Division] 
+			Divide (80, by 7) to get
+			\DIVIDE{80}{7}{\div} \div
+		%%%
+		\item[Maximum] The Max of (7, 9) is 
+			\MAX{7}{9}{\nine}. So, \nine
+		\item[Minimum] The Min of (5, 3) is
+			\MIN{5}{3}{\three}. So, \three
+		%%%
+		\item[Simplifying Fractions]
+			\FRACTIONSIMPLIFY{10}{16}{\numer}{\denom}
+			The numerator and denominator are
+			(\numer, \denom) 
+		%%%
+		\item[Result as a New Macro]
+			\newcommand{\ValueAdded}{}
+			\ADD{8}{8}{\ValueAdded} 
+			My new Macro now holds \ValueAdded
+	\end{description}
+	
+	\subsection{Using in New Commands}
+	\newcommand{\decision}[3]{
+		\POWER{#1}{#2}{\res}
+		\COPY{#3}{\thresh}
+		\ifthenelse{\res < \thresh}
+			{You still in bound, $\res < \thresh$}						{You're Free,  $\res > \thresh$}
+	} 
+	\decision{1}{3}{50} \\[3pt]
+	\decision{3}{3}{25}
+	
+	\subsection{The Scope of Result Variables}
+	\COPY{8}{\eight} 
+	\verb|\eight| is \eight 
+	
+	{
+		At First \verb|\eight| is \eight 
+		
+		\color{red!70}
+		%% Changing the same \eight by adding one 
+		\ADD{1}{\eight}{\eight} 
+		
+		After adding one: 											\verb|\eight| becomes \eight\,!!	
+	} 
+	
+	\noindent
+	\verb|\eight| is \eight
+	
+%	{
+%		\POWER{3}{5}{\powthreefive} \powthreefive
+%	}
+%	\powthreefive
+
+	\subsection{Working with Lengths}
+	\newlength{\height}
+	
+	\begin{description}
+		\item[Length Addition]
+			\LENGTHADD{1in}{50pt}{\height}
+			The length \texttt{height} is \the\height
+		%
+		\item[Length Subtraction]
+			\LENGTHSUBTRACT{2cm}{20pt}{\height}
+			Now, \texttt{height} is \the\height
+		%
+		\item[Length Division]	
+			\LENGTHDIVIDE{1in}{1cm}{\lenres} %1in=2.54cm
+			One Inch is equal to \lenres 
+	\end{description}
+	
+	\pagebreak
+	
+	\subsection{Operations on Vectors}
+	
+	\begin{description}
+		\item[Assigning 2-D Vectors]
+			\VECTORCOPY(3,4)(\vecta, \vectb) 
+			My new vector is $(\vecta, \vectb)$ 
+		%
+		\item[Assigning 3-D Vectors]
+			\VECTORCOPY(3,4,2)(\vecta, \vectb, \vectc)
+			Making it 3-D $(\vecta, \vectb, \vectc)$
+		%
+		\item[Vector Addition]
+			Adding the new vector to itself. 
+			\VECTORADD(\vecta, \vectb)(\vecta, \vectb)%
+			(\vecta, \vectb) So, $(\vecta, \vectb)$
+		%
+		\item[Scalar-Vector Product]
+			\SCALARVECTORPRODUCT{2}(3,4)(\vectx, \vecty)
+			So, it becomes $(\vectx, \vecty)$ 
+	\end{description}
+	
+	\subsubsection{More than Three Elements}
+	\VECTORADD(1,2,3,4)(1,2,3,4)(\von, \vtw, \vth, \vf)
+	Adding $(1,2,3,4)$ to itself gives 
+		$(\von, \vtw, \vth, \vf)$
+		
+	\newcommand{\AddFourDimVect}[4]{
+		\ADD{#1}{#1}{\resa} \ADD{#2}{#2}{\resb}
+		\ADD{#3}{#3}{\resc} \ADD{#4}{#4}{\resd}
+		$(\resa, \resb, \resc, \resd)$
+	}
+	\noindent \\
+	While the result must be: 
+	\AddFourDimVect{1}{2}{3}{4} 
+	
+	\subsection{Operations on Matrices}
+	
+	\begin{description}
+		\item[Assigning 2\,x\,2 Matrix]
+			\MATRIXCOPY(1,2;3,4)(\a,\b;\c,\d)
+			$\begin{bmatrix}
+				\a & \b \\
+				\c & \d
+			\end{bmatrix}$
+		%
+		\item[Assigning 3\,x\,3 Matrix]
+			\MATRIXCOPY(2, 	1, 4;
+						3, -5, 5;
+						2, -7, 4)%
+						(\ela ,\elb ,\elc;
+						 \elld,\elle,\ellf;
+						 \ellg,\ellh,\elli)
+			$\begin{bmatrix}
+				\ela  & \elb  & \elc  \\
+				\elld & \elle & \ellf \\
+				\ellg & \ellh & \elli
+			\end{bmatrix}$
+		%
+		\item[Transpose a Matrix]
+			\TRANSPOSEMATRIX(\a,\b;\c,\d)%
+							(\at,\bt;\ct,\dt)
+			$\begin{bmatrix}
+				\at & \bt \\
+				\ct & \dt
+		 	\end{bmatrix}$
+		 %
+		 \item[Matrix Addition]
+		 	\MATRIXADD(\a,\b;\c,\d)(\a,\b;\c,\d)%
+		 		(\a,\b;\c,\d)
+		 	$\begin{bmatrix}
+				\a & \b \\
+				\c & \d
+			 \end{bmatrix}$
+		%
+		\item[Multiply by Scalar]
+			\SCALARMATRIXPRODUCT{2}(1,2;3,4)%
+					(\a,\b;\c,\d)
+			$\begin{bmatrix}
+				\a & \b \\
+				\c & \d
+			 \end{bmatrix}$
+	\end{description}
+	
+	\pagebreak
+	
+	\section{The calculus Package}
+	
+	\subsection{Built-in Functions}
+	\begin{description}
+		\item[Square Function]
+			If we have an input $t=4$ and $f(t)=t^2$, 
+			and it's derivative is $f'(t)=2t$, then:
+			\SQUAREfunction{4}{\fsol}{\Dfsol}
+			$f(4)=\fsol$, and $f'(4)=\Dfsol$.
+		%
+		\newcommand{\two}{2}
+		\item[Cube Function]	
+			If we have an input $t=2$ and $f(t)=t^3$, 
+			and it's derivative is $f'(t)=3t^2$, then:
+			\CUBEfunction{\two}{\twosol}{\Dtwosol}
+			$f(2)=\twosol$, and $f'(2)=\Dtwosol$.
+		%
+		\MULTIPLY{\twosol}{2}{\sqrtin}
+		\item[Square Root]
+			If we have an input $t=\sqrtin$ 
+			and $f(t)=\sqrt{t}$, and it's derivative is
+			$f'(t)=\frac{1}{2*\sqrt{t}}$ , then:
+			\SQRTfunction{\sqrtin}{\sqrtsol}{\Dsqrtsol}
+			$f(\sqrtin)=\sqrtsol$, 
+			and $f'(\sqrtin)=\Dsqrtsol$
+	\end{description}
+	
+	\subsection{Defining New Functions via Operations}
+	\begin{description}
+		\item[Summing Two Functions]
+			We can define $F(t)=\sqrt{t} + \sin t$ using 
+			the \verb|\SUMfunction|.
+		   \SUMfunction{\SQRTfunction}{\SINfunction}{\F}
+		   \F{4}{\Fsol}{\DFsol}	
+		   %
+		   So that we have: 
+		   \begin{itemize}
+		   		\item $F(4) = \sqrt{4} + \sin 4$ 
+		   			equal to ~\Fsol
+		   		\item $F'(4)= \frac{1}{2*\sqrt{4}} + 							\cos 4$ equal to \DFsol
+		   \end{itemize}
+		%%
+		\item[Some Other Operations] that work the same
+		 	way:
+		 	\input{other_ops.tex}
+	\end{description}
+	
+	\subsection{Example: Linear Combination}
+	The linear combination of two functions $f(x)$ and
+	 $g(x)$ is given by: \\
+	 \[ h(x) = a \cdot f(x) + b \cdot g(x) \]
+	%
+	 \noindent\\[5pt]
+	 Compose and Evaluate:
+	 $F(t) = 2e^{cos t} - e^{-t}sin t$ 
+	%
+	%%% 1. First Part: e^(cos t)
+	\COMPOSITIONfunction{\EXPfunction}{\COSfunction}				{\FunOne}
+	
+	%%% 2. Secoond Part: e^(-t) * sin(t)
+	\SCALEVARIABLEfunction{-1}{\EXPfunction}{\Fexp}
+	\PRODUCTfunction{\Fexp}{\SINfunction}{\FunTwo}
+	
+	 %%% 3. The Linear Combination
+	 % Composing
+	 \LINEARCOMBINATIONfunction{2}{\FunOne}
+	 			{-1}{\FunTwo}{\LinearComb}
+	  % Using
+	 \LinearComb{4}{\FLinSol}{\DFLinSol}
+	  % Printing
+	 \begin{itemize}
+	 	\item $F(4) = 2e^{cos 4} - e^{-4}sin 4$,
+	 		which is \FLinSol
+	 	\item $F'(t)= -2e^{cos t}sin t - e^{-t}cos t +
+	 		e^{-t}sin t$, for $t=4$ we have \DFLinSol
+	 \end{itemize}
+	 
+	 \pagebreak
+	 
+	 \subsection{Defining Polynomial Functions}
+	 \begin{description}
+	 	\item[Linear Polynomial] 
+	 		$p(t) = a + b\,t$ \\
+	 		\newlpoly{\linpoly}{4}{3} % a=4, b=3
+	 		\linpoly{2}{\flinpoly}{\fdlinpoly}
+	 		at $t=2$, it evaluates to $p(2)=\flinpoly$, 
+			$p'(2)=\fdlinpoly$
+		%
+		\item[Quadratic Polynomial] 
+			$p(t) = a + b\,t + c t^2$ \\
+			\newqpoly{\quadpoly}{4}{3}{1} 
+			\quadpoly{2}{\fquadpoly}{\fdquadpoly} 
+			at $t=2$, it evaluates to $p(2)=\fquadpoly$, 
+			$p'(2)=\fdquadpoly$
+		%
+		\item[Cubic Polynomial] 
+			$p(t) = a + b\,t + c\,t^2 + d\,t^3$ \\
+			\newcpoly{\cubepoly}{4}{3}{2}{1} 
+			\cubepoly{2}{\fcubepoly}{\fdcubepoly} 
+			at $t=2$, it evaluates to $p(2)=\fcubepoly$, 
+			$p'(2)=\fdcubepoly$
+	 \end{description}
+	 
+	\noindent
+	Of course this whole setup can be abstracted inside 
+	a new control sequence. \\[3pt]
+	\newcommand{\quadpoly}[4]{
+		% Define
+		\newqpoly{\evquadpoly}{#1}{#2}{#3} % a,b,c
+		% Compute
+		\evquadpoly{#4}{\fquadpoly}{\fdquadpoly}
+		% Print
+		Evaluating $p(t)=a+bt+ct^2$ at $t=#4$ gives\,:-
+		$p(#4)=\fquadpoly$, and $p'(#4)=\fdquadpoly$
+	}
+	\quadpoly{1}{2}{3}{4}
+	
+	\subsection{Vector Valued Functions}
+	\[ 
+		\mathbf{F}(t) = \begin{bmatrix} 
+							t^2 \\ t^3 
+						\end{bmatrix} 
+	\]
+	%% 1. V Define
+	\VECTORfunction{\SQUAREfunction}{\CUBEfunction}{\VF}
+	%% 2. V Compute
+	\VF{2}{\fsq}{\fdsq}{\fcube}{\fdcube}
+	%% 3. V Print
+	If parameter/variable $t=2$ :
+	\[ 
+		F(2) = \begin{bmatrix} 
+					\fsq   \rightarrow 2^2 \\ 
+					\fcube \rightarrow 2^3 
+			   \end{bmatrix} 
+	\]
+	and
+	\[
+		F'(2) = \begin{bmatrix} 
+					\fdsq \\ 
+					\fdcube
+			   \end{bmatrix}	
+	\]
+	
+	\subsection{Combining Two Polynomials}
+	\[
+		\mathbf{P}(t) = \begin{pmatrix}
+							a + b\,t \\
+							a + b\,t + c\,t^2
+					    \end{pmatrix}			
+	\]
+	\newcommand{\PolVectFunc}[4]{ % a,b,c,t
+		% Linear Polynomial
+		\newlpoly{\vlinpoly}{#1}{#2}
+		\vlinpoly{#4}{\fvlinpoly}{\fdvlinpoly}
+		% Quadratic Polynomial
+		\newqpoly{\vquadpoly}{#1}{#2}{#3}
+		\vquadpoly{#4}{\fvquadpoly}{\fdvquadpoly}
+		% Creating & Evaluating the vector function
+		\VECTORfunction{\vlinpoly}{\vquadpoly}							{\VectFunc}
+		\VectFunc{#4}{\fvlinpoly}{\fdvlinpoly}
+			{\fvquadpoly}{\fdvquadpoly}
+		%%
+		Evaluating at $a=1,b=2,c=3, and~ t=4$, gives:
+		\[
+			P(4) = \begin{pmatrix}
+						\fvlinpoly \\ \fvquadpoly
+				   \end{pmatrix}			
+		\]
+		and
+		\[
+			P'(4) = \begin{pmatrix}
+						\fdvlinpoly \\ \fdvquadpoly
+				    \end{pmatrix}			
+		\]
+	}
+	\PolVectFunc{10}{12}{35}{14}
+	
+	\subsubsection{Defining Custom Vector Functions}
+	\[
+		\mathbf{V}(t) = \begin{bmatrix}
+							X(t) = t^2 \\ 
+							Y(t) = t^3
+						\end{bmatrix}
+	\]
+	%
+	\newvectorfunction{\NewVF}{
+		% Define (\x, \Dx) and (\y, \Dy) from \t
+		\SQUARE{\t	}{\x}       % x  = t^2
+		\MULTIPLY{2}{\t}{\Dx} % x' = 2t
+		%
+		\CUBE{\t}{\y}         % y = t^3
+		\MULTIPLY{3}{\x}{\Dy} % y’= 3t^2
+	}
+	%
+	\NewVF{2}{\XVF}{\XdVF}{\YVF}{\YdVF}
+	\begin{center}
+		$
+			V(2) =  \begin{bmatrix}
+						\XVF \\ \YVF
+					\end{bmatrix}			
+		$ ,
+		$
+			V'(2) =  \begin{bmatrix}
+						\XdVF \\ \YdVF
+					 \end{bmatrix}			
+		$
+	\end{center}
+	
+	\pagebreak
+	
+	\subsection{Defining Low Level New Functions}
+	Defining $F(t) = t^2 + t^3$ which has a derivative 			of $F'(t) = 2t + 3t^2$ 
+	%
+	\newfunction{\myNewFunc}{
+		\SQUARE{\t}{\a} % a = t^2
+		\CUBE{\t}{\b}   % b = t^3
+		\ADD{\a}{\b}{\y}% F(t) = t^2 + t^3
+		%%
+		\MULTIPLY{2}{\t}{\adash} % a' = 2t
+		\MULTIPLY{3}{\a}{\bdash} % b' = 3*t^2 -> (a=t^2)
+		\ADD{\adash}{\bdash}{\Dy}% F'(t) = 2t + 3t^2
+	} 
+	%
+	\myNewFunc{2}{\myfsol}{\myfdsol}
+	\[ F(t) = \myfsol,~ F'(t) = \myfdsol \]
+\end{document}

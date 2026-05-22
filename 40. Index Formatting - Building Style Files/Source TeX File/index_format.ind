@@ -1,0 +1,17 @@
+\begin{theindex}
+\begin{tikzpicture} \node[draw, white, fill=black, 
+    inner xsep=0.2\linewidth, inner ysep=8pt] {\huge\ttfamily A}; \end{tikzpicture} \vspace{0.25cm}
+\item \ttfamily \color{green!80}Article\dotfill ~1
+    \subitem Section\hfill1, and 2
+      \subsubitem SubSection\dotfill ~2
+
+ \vspace{2cm}\begin{tikzpicture} \node[draw, white, fill=black, 
+    inner xsep=0.2\linewidth, inner ysep=8pt] {\huge\ttfamily B}; \end{tikzpicture} \vspace{0.25cm}
+\item \ttfamily \color{green!80}Book\dotfill ~1
+    \subitem Chapter\hfill1
+
+ \vspace{2cm}\begin{tikzpicture} \node[draw, white, fill=black, 
+    inner xsep=0.2\linewidth, inner ysep=8pt] {\huge\ttfamily K}; \end{tikzpicture} \vspace{0.25cm}
+\item \ttfamily \color{green!80}KantPar \dotfill ~1:3
+
+\end{theindex}

@@ -1,0 +1,35 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[make()]{GNUMake}
+make.
+\newblock \emph{{GNU Make}, A Program for Directing Recompilation}.
+\newblock Free Software Foundation, Boston, Massachusetts, 2000.
+
+\bibitem[Knuth(1986)]{Knuth-TB}
+D.~E. Knuth.
+\newblock \emph{The {\TeX}book}, volume~A of \emph{Computers and Typesetting}.
+\newblock Ad{\-d}i{\-s}on-Wes{\-l}ey, Reading, MA, USA, 1986.
+\newblock ISBN 0-201-13447-0.
+
+\bibitem[Knuth(1989)]{Knuth-CM}
+D.~E. Knuth.
+\newblock {Typesetting Concrete Mathematics}.
+\newblock \emph{TUGboat}, 10\penalty0 (1):\penalty0 31--36, Apr. 1989.
+\newblock ISSN 0896-3207.
+
+\bibitem[Liu et~al.(2023)Liu, Yu, Pautrat, Pollefeys, and Larsson]{LM3D}
+S.~Liu, Y.~Yu, R.~Pautrat, M.~Pollefeys, and V.~Larsson.
+\newblock 3d line mapping revisited, 2023.
+
+\bibitem[Mittelbach and Rowley(1992)]{MR-PQ}
+F.~Mittelbach and C.~Rowley.
+\newblock The pursuit of quality: How can automated typesetting achieve the
+  highest standards of craft typography?
+\newblock pages 261--273, 1992.
+
+\end{thebibliography}

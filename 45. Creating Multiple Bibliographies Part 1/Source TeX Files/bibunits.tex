@@ -1,0 +1,45 @@
+\documentclass{book}
+
+\usepackage{kantlipsum}
+\usepackage{bibunits}
+
+\begin{document}
+%	%%%%%% 1. Method One: \bibliographyunit
+%	
+%	\bibliographyunit[\section]
+%	
+%	\defaultbibliography{biblio}	
+%	
+%	\chapter{The First Chapter}
+%	
+%	\section{First Section}
+%	Refer to \cite{Knuth-CT}, and 								\cite{Knuth-TB} for more info.
+%	\subsection{Some Subsection}
+%	\putbib
+%	
+%	\section{Test Section}
+%	\kant[1]		
+%		
+%	\chapter{The Second Chapter}
+%	\section{Second Section}
+%	Refer to \cite{MR-PQ}, and 									\cite{3DLM} for more info.
+%	\putbib
+	
+	\begin{bibunit}[plain]
+		\chapter{The First Chapter}
+		Refer to \cite{Knuth-CT}, and 								\cite{Knuth-TB} for more info.
+		\putbib[base1]
+	\end{bibunit}
+		
+	\begin{bibunit}[plain]
+		\chapter{The Second Chapter}
+		Refer to \cite{MR-PQ}, and 									\cite{3DLM} for more info.
+		\putbib[base2]
+	\end{bibunit}
+	
+	%%% Global Usual Bibliography
+	\bibliographystyle{alpha}
+	\bibliography{global}
+	\nocite{*}
+	
+\end{document}

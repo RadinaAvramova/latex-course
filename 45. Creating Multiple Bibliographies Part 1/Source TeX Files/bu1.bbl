@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{Knuth-CT}
+Donald~E. Knuth.
+\newblock {\em The {\TeX}book}, volume~A of {\em Computers and Typesetting}.
+\newblock Ad{\-d}i{\-s}on-Wes{\-l}ey, Reading, MA, USA, 1986.
+
+\bibitem{Knuth-TB}
+Donald~E. Knuth.
+\newblock {Typesetting Concrete Mathematics}.
+\newblock {\em TUGboat}, 10(1):31--36, April 1989.
+
+\end{thebibliography}

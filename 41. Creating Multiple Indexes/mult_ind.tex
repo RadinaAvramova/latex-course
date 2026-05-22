@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\usepackage{imakeidx}
+\usepackage{kantlipsum, xcolor, hyperref}
+
+\title{\Large\bf Creating Multiple Indexes}
+\date{}
+
+\makeindex[name=tex, title=Index of TeX Commands,
+	columns=1, options={-s tex.ist}]
+
+\makeindex[name=latex, title=Index of LaTeX Commands,
+	columns=1, options={-s latex.ist}]
+
+\hypersetup{colorlinks=true, linkcolor=blue}
+
+\begin{document}
+	\maketitle
+	
+	\section{TeX Commands Section}
+	\kant[1] \index[tex]{T@\textbackslash TeX}
+	
+	\pagebreak
+	
+	\section{LaTeX Commands Section}
+	\kant[1] \index[latex]{L@\textbackslash LaTeX}
+	
+	\printindex[tex]
+	\printindex[latex]
+	
+\end{document}

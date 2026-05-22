@@ -1,0 +1,28 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{LYP{\etalchar{+}}23}
+
+\bibitem[Knu86]{Knuth-CT}
+Donald~E. Knuth.
+\newblock {\em The {\TeX}book}, volume~A of {\em Computers and Typesetting}.
+\newblock Ad{\-d}i{\-s}on-Wes{\-l}ey, Reading, MA, USA, 1986.
+
+\bibitem[Knu89]{Knuth-TB}
+Donald~E. Knuth.
+\newblock {Typesetting Concrete Mathematics}.
+\newblock {\em TUGboat}, 10(1):31--36, April 1989.
+
+\bibitem[LYP{\etalchar{+}}23]{3DLM}
+Shaohui Liu, Yifan Yu, Rémi Pautrat, Marc Pollefeys, and Viktor Larsson.
+\newblock 3d line mapping revisited, 2023.
+
+\bibitem[mak00]{GNUMake}
+Free Software Foundation, Boston, Massachusetts.
+\newblock {\em {GNU Make}, A Program for Directing Recompilation}, 2000.
+
+\bibitem[MR]{MR-PQ}
+Frank Mittelbach and Chris Rowley.
+\newblock The pursuit of quality: How can automated typesetting achieve the
+  highest standards of craft typography?
+\newblock pages 261--273.
+
+\end{thebibliography}

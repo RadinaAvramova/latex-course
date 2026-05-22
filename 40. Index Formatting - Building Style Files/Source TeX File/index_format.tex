@@ -1,0 +1,31 @@
+\documentclass[dvipsnames]{article}
+
+\usepackage{imakeidx}
+\usepackage{kantlipsum, xcolor, tikz}
+
+\title{\huge\bf Building MakeIndex Style Files}
+\date{}
+
+\makeindex[title={\textcolor{blue!50}{\huge Index}}, columns=1, options={-s tikz_index_style.ist}] 
+	
+\begin{document}
+	\maketitle
+	
+	\kant[1]
+	%% Page 1 Indexes
+	\index{KantPar |(}
+	\index{Article} \index{Article!Section}
+	\index{Book} 	\index{Book!Chapter}
+	
+	\pagebreak
+	\kant[1]
+	%% Page 2 Indexes
+	\index{Article!Section}
+	\index{Article!Section!SubSection}
+	
+	\pagebreak
+	\index{KantPar |)}
+	\kant[1]
+	
+	\printindex
+\end{document}

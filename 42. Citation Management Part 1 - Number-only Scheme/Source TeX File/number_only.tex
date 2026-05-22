@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage[space]{cite}
+\usepackage{hyperref}
+
+\title{\bf Citations with the number-only Scheme}
+\date{}
+
+\renewcommand{\citepunct}{, and\,}
+\renewcommand{\citemid}{;~}
+\renewcommand\citeleft{(}
+\renewcommand\citeright{)} 
+\renewcommand\citedash{\,:\,}
+
+\hypersetup{
+	colorlinks=true, citecolor=blue
+}
+
+\begin{document}
+	\maketitle
+	
+	\section{Citations Management}
+	
+	\subsection{Basic Work}
+	For more information refer to \cite[P.15]{LGC97}, or 
+	refer to \cite[pp\,128\,--130]{GUD97}. \\[3pt]
+	You can also have multiple cites \cite{LGC97,GUD97}.
+	
+	\subsection{Automatic Sorting and Compression}
+	\textit{\bfseries Stopped by [nosort, nocompress] 				package options.} \\
+	The {\bf cite} package sorts and compresses three 			or more consecutive citations into range format
+	\cite{TCM,LGC97,GUD97} % [3,1,2] -> [1,2,3] -> [1-3]
+	without sorting or compression it will be [3,1,2].
+	
+	\subsection{Plain Citing}
+	Plain citation with {\bf cite} package is like see
+	\citen{TCM}
+	
+	\pagebreak
+	
+	\begin{thebibliography}{111}
+		%%% The First Ref %%%
+		\bibitem{LGC97} 
+			Goossens, M., S.~Rahtz, and F.~Mittelbach 					(1997). 
+			\newblock \emph{The \LaTeX{} Graphics 						Companion: Illustrating Documents with 
+			\TeX{} and PostScript}. 
+			\newblock Reading, MA, USA:
+			Addison-Wesley Longman.
+		%%% The Second Ref %%%
+		\bibitem{GUD97} 
+			Goossens, M., B.~User, J.~Doe (1997). 
+			\newblock Ambiguous citations.
+		%%%% Third Ref %%%%
+		\bibitem{TCM} 
+			D.E.Knuth, Typesetting Concrete 							Mathematics. 
+			\newblock \emph{TUGboat}, Apr.\,1989.
+	\end{thebibliography}
+
+\end{document}

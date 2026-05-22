@@ -1,0 +1,105 @@
+\documentclass{article}
+
+\usepackage{calc}
+\usepackage{fltpoint}
+
+\title{\bf Extending Counters \& Lengths Input Space}
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	\section{For Counters}
+	\begin{description}
+		\item[Setting by Addition]
+			\newcounter{AddCount} 
+			\setcounter{AddCount}{4+2}
+			\theAddCount
+		%
+		\item[Setting by Multiplication]
+			\newcounter{MultCount} 
+			\setcounter{MultCount}{2*3}
+			\theMultCount
+		%
+		\item[Setting by Division]
+			\newcounter{DivCount} 
+			\setcounter{DivCount}{10/2}
+			\theDivCount
+		%%
+		\item[Adding to Counter] % Works the same way: 
+			\addtocounter{AddCount}{2*\value{DivCount}}
+			The \texttt{AddCount} is now \theAddCount
+	\end{description}
+	
+	\section{For Lengths}
+	\begin{description}
+		\item[Setting by Add/Sub] 
+			\newlength{\AddLen}
+			\setlength{\AddLen}{20pt-10pt}
+			\the\AddLen
+		%
+		\item[Setting by Multiplication]
+			% Length Value must come First in Operation
+			\newlength{\MultLen}
+			\setlength{\MultLen}{5pt * 3} 
+			\the\MultLen
+		%
+		\item[Setting bu Division]
+			This is not supported by default
+%			\newlength{\DivLen} 
+%			\setlength{\DivLen}{20pt/10pt}
+%			\the\DivLen
+			So, for that we use the \verb|\ratio{}{}|
+			\newlength{\DivLen} 
+			\setlength{\DivLen}{1pt*\ratio{20pt}{10pt}}
+			The \texttt{DivLen} is \the\DivLen
+		%
+		\item[Adding to a Length]
+			%% Changing bu Add/Sub
+			\addtolength{\AddLen}{2pt+3pt} \the\AddLen
+			~ $\rightarrow$
+			%% Changing by Mult
+			\addtolength{\AddLen}{2pt*3} \the\AddLen 
+			%% Changing by Division
+			\addtolength{\AddLen}{1pt*\ratio{8pt}{2pt}}
+			~ $\rightarrow$ \the\AddLen
+		%
+		\item[Composing Expressions]	
+			\addtolength{\AddLen}{2pt*1+3pt} 
+			\the\AddLen
+	\end{description}
+	
+	\section{Using Real Numbers}
+	\newcounter{RealCount}
+	\newlength{\Realen}
+	
+	\begin{description}
+		\item[Multiplication for Counters]
+			\setcounter{RealCount}{4*\real{2.5}}
+			\theRealCount
+		%
+		\item[Dividing for Counters]
+			\addtocounter{RealCount}{50/\real{2.5}}
+			\theRealCount
+			\begin{itemize}
+				\item For Accuracy we can use fltpoint
+					%% Reset RealCount
+					\setcounter{RealCount}{10}
+					\fpDiv{\DivVal}{50,0}{2,5} % = 20
+					\addtocounter{RealCount}{\DivVal}
+					\theRealCount
+			\end{itemize}
+		%
+		\item[Multiplication for Lengths]
+			\setlength{\Realen}{5pt*\real{2.5}}
+			\the\Realen
+		%
+		\item[Dividing for Lengths]
+			% \ratio{}{} is a real number feature
+			\addtolength{\Realen}{
+				1pt*\ratio{20pt}{2.5pt} % = 8
+			}
+			\the\Realen
+	\end{description}
+	
+\end{document}

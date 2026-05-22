@@ -1,0 +1,20 @@
+headings_flag 1
+
+% heading_prefix "\\begin{tikzpicture} \\fill[blue!80] (0,0) rectangle (4,0.2); 
+    \\end{tikzpicture}\n\n {\\color{Gray}\\Large\\bfseries "
+% heading_suffix "}\n\n \\begin{tikzpicture} \\fill[blue!60] (0,0) rectangle (2.5,0.2);
+    \\end{tikzpicture} \\ttfamily \\color{red!80}"
+
+heading_prefix "\\begin{tikzpicture} \\node[draw, white, fill=black, 
+    inner xsep=0.2\\linewidth, inner ysep=8pt] {\\huge\\ttfamily "
+heading_suffix "}; \\end{tikzpicture} \\vspace{0.25cm}"
+
+group_skip "\n\n \\vspace{2cm}"  
+
+item_0 "\n\\item \\ttfamily \\color{green!80}"
+
+delim_0 "\\dotfill ~"
+delim_1 "\\hfill"
+delim_2 "\\dotfill ~"
+delim_n ", and "
+delim_r ":"

@@ -1,0 +1,76 @@
+\documentclass{article}
+
+\usepackage[numbers, sort&compress]{natbib}
+\usepackage{xcolor, hyperref}
+
+\title{\bf Citation with natbib Package}
+\date{}
+
+\setlength{\textheight}{650pt} % 592pt
+
+\begin{document}
+	\maketitle  
+	
+	\section{Basic Commands}
+	\begin{description}
+		\item[Textual Citation] \citet{Knuth}
+		\item[Parenthetical Citations] \citep{Knuth}
+		\item[Author Abbreviation] \citet{LGC97}
+		\item[Full Author List] \citet*{LGC97}
+		%% Notes [pre-notes][post-note]
+		\item \rule{2cm}{2pt}
+		\item[Post-Note] \citet[Chap.5]{Knuth}
+		\item[Full-Note] \citep[see][Chap.5]{Knuth}
+		\item[Pre-Note]  \citep[see][]{Knuth}
+		%% Multiple Citations
+		\item \rule{2cm}{2pt}
+		\item[Different Authors] \citet{Knuth, TCM}
+		\item[Same Author] \citet{TCM, TCM1}
+	\end{description}
+	
+	\vspace{0.5cm}
+	
+	\section{Extended Commands}
+	\begin{description}
+		\item[Textual without Parentheses]
+			\citealt{Knuth}
+		\item[Parenthetical without Parentheses]
+			\citealp{Knuth}
+		\item[Citation Number] 
+			\citenum{Knuth,TCM1,LGC97,TCM}
+		\item \rule{2cm}{2pt}
+		\item[Citing with Text] 
+			\citetext{
+			Refer to \citet{Knuth}, or check \citep{TCM} 
+			}
+		\item \rule{2cm}{2pt}
+		\item[Citing Author Only] \citeauthor{Knuth}
+		\item[Citing Year Only] 
+			\citeyear{Knuth}, or \citeyearpar{TCM}
+		\item \rule{2cm}{2pt}
+		\defcitealias{Knuth}{
+			\textcolor{orange}{The \TeX\,Book}}
+		\item[Textual Aliasing] \citetalias{Knuth}
+	\end{description}
+	
+	\pagebreak
+	
+	\begin{thebibliography}{111}
+		%% First Ref
+		%% \bibitem[output]{label}
+		\bibitem[Donald~E. Knuth(1986)]{Knuth} 							\newblock \emph{The {\TeX}book}, volume~A of 				\emph{Computers and Typesetting}.
+			Addison-Wesley, Reading, MA, USA, 1986.
+		%% Second Ref
+		\bibitem[D.E.Knuth(1989)]{TCM}
+			\newblock D.E.Knuth, Typesetting Concrete 					Mathematics. \emph{TUGboat}, Apr.\,1989.
+		\bibitem[D.E.Knuth(1990)]{TCM1}
+			\newblock D.E.Knuth, Typesetting Concrete 					Mathematics. \emph{TUGboat}, Apr.\,1989.
+		%% Third Ref
+		\bibitem[Goossens et al.(1997)Goossens, Rahtz, 					and Mittelbach] {LGC97} 
+			Goossens, M., S.~Rahtz, and F.~Mittelbach 					(1997). 
+			\newblock \emph{The \LaTeX{} Graphics 						Companion: Illustrating Documents with 
+			\TeX{} and PostScript}. 
+			\newblock Reading, MA, USA:
+			Addison-Wesley Longman.
+	\end{thebibliography}
+\end{document}
