@@ -1,0 +1,66 @@
+\documentclass{book}
+
+\usepackage{lipsum}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[capitalize, noabbrev]{cleveref}
+
+\begin{document}
+	% First Chapter
+	\chapter{Introduction}
+	\label{chap:intro}
+	\lipsum[1] \\
+	
+	Let's refer to \cref*{chap:ins} here !!
+	
+	\section{Basic Concepts}
+	\label{sec:basicons}
+	This is a range reference for 
+	\Crefrange{eq:1steq}{eq:3rdeq} \\
+	
+	This is a bulk reference of all labeled objects
+	in the last chapter
+\cref{eq:2ndeq,eq:1steq,eq:3rdeq,chap:conc,sec:fineqs}
+
+\cref{eq:1steq,eq:2ndeq,,eq:3rdeq,eq:frtheq,eq:fiftheq}
+	
+	% Chapter Two
+	\chapter{Insights}
+	\label{chap:ins}
+	\lipsum[1] \\
+	
+	This is a reference to \cref{sec:basicons} \\
+	
+	\Cref{eq:1steq} has its own reference capitalized
+	and not abbreviated unlike this one
+	\cref{eq:1steq} in the middle of a sentence.
+	
+	% Chapter Three
+	\chapter{Conclusion}
+	\label{chap:conc}
+	\lipsum[1] 
+	
+	\section{Final Equations}
+	\label{sec:fineqs}
+	
+	\begin{equation}
+		F(x) = 2x + y
+		\label{eq:1steq}
+	\end{equation}
+	\begin{equation}
+		F(x) = 2x + y
+		\label{eq:2ndeq}
+	\end{equation}
+	\begin{equation}
+		F(x) = 2x + y
+		\label{eq:3rdeq}
+	\end{equation}
+	\begin{equation}
+		F(x) = 2x + y
+		\label{eq:frtheq}
+	\end{equation}
+	\begin{equation}
+		F(x) = 2x + y
+		\label{eq:fiftheq}
+	\end{equation}
+\end{document}

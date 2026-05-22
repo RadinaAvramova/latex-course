@@ -1,0 +1,67 @@
+\documentclass{book}
+
+\usepackage{lipsum}
+\usepackage[nospace]{varioref}
+\usepackage{xcolor}
+
+\begin{document}
+	% First Chapter
+	\chapter{Introduction}
+	\label{chap:intro}
+	\lipsum[1]	\\
+	
+	% First Case for \vref
+	The Command "vref" acts like normal "ref" one 
+	if both the label and the reference 
+	{\color{blue}{\textbf{\vref{chap:intro}}}} are
+	on the same page. \\
+	
+	% Second Case for \vref
+	The command "vref" will produce an additional
+	string to the reference number
+	{\color{blue}{\textbf{\vref{sec:basicnpt}}}} 
+	if the label and the reference are in two
+	consecutive pages.
+	
+	\pagebreak
+	
+	\section{Basic Concepts}
+	\label{sec:basicnpt}
+	\lipsum[1-4]
+	
+	\pagebreak
+	
+	% Third Case for \vref
+	and if they are separated by more than one page
+	it will reference the page number
+	{\color{blue}{\textbf{\vref{chap:intro}}}}
+	
+	% Second Chapter
+	\chapter{Insights}
+	\lipsum[1]	\\
+	We are refering to the first chapter 
+	\vpageref{chap:intro} using varioref package. \\
+	Proceed to the next section
+	\vpageref{sec:basicins} for further information.
+	
+	\pagebreak
+	
+	\section{Basic Insights}
+	\label{sec:basicins}
+	\lipsum[1-2]
+	
+	% Third Chapter
+	\chapter{Conclusion}
+	Refering to sections \vrefrange{app:a}{app:c}
+	\section{Appendix A}
+	\label{app:a}
+	
+	\section{Appendix B}
+	\label{app:b}
+	
+	\section{Appendix C}
+	\label{app:c}
+	
+	Recall that the first chapter lie
+	\vpagerefrange{chap:intro}{sec:basicnpt}
+\end{document}

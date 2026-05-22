@@ -1,0 +1,40 @@
+\documentclass{book}
+
+\usepackage{lipsum}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\begin{document}
+	% First Chapter
+	\chapter{Introduction}
+	\label{chap:intro}
+	\lipsum[1-2] \\
+	
+	We can actually refer to the section 						{\color{blue}{\ref{sec:corecns}}} that is in 			the next chapter here !!
+	
+	% Second Chapter
+	\chapter{Insights}
+	
+	\section{Core Concepts}
+	\label{sec:corecns}
+	\lipsum[1-2] \\
+		
+	The Introduction chapter is in page number
+		\pageref{chap:intro}, while the last chapter is 		in page number \pageref{chap:conc}
+	\pagebreak
+	
+	\noindent The Concepts we have:
+	\begin{enumerate}
+		\item Concept Number One.
+		\item Concept Number Two. \label{item:cnp2}
+		\item Concept Number Three.
+	\end{enumerate}
+	
+	% Third Chapter
+	\chapter{Conclusion}
+	\label{chap:conc}
+	Now we will refer to the Introduction Chapter 				{\Large \textbf{\ref{chap:intro}} } \\
+	This is the second time we refer to the Core 				Concepts Section \ref{sec:corecns} \\
+	
+	To learn more refer to concept number 						\ref{item:cnp2} in page number 								\pageref{item:cnp2}
+\end{document}
